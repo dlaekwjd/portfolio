@@ -7,15 +7,102 @@
     <!--[if lt IE 9]>
         <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <![endif]-->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var $menu = $('#indicator ul li');
+        var $wrap = $('#main .wrap');
+        var total = $wrap.children('article').size();        //6
+        var tgIdx = 0;      //현재 보여질 article의 인덱스 번호
+        var windowWid;    //윈도우창의 가로 크기
+        var timerResize = 0;      //누적되는 resize 이벤트의 실행문을 최소화 하기위해
+        var timerWheel = 0;      //누적되는 mousewheel 이벤트의 실행문을 최소화 하기위해
+    
+        //초기설정 : 인디케이터 첫번째 li.on 추가
+        $menu.eq(0).addClass('on');
+    
+        //1) resize 될 때 .wrap의 가로크기, article의 가로크기를 고정
+        $(window).on('resize', function () {
+            clearTimeout(timerResize);
+            setTimeout(function () {
+                windowWid = $(this).width();
+                //console.log(windowWid);
+                $wrap.css({width: windowWid*total}).children('article').css({width: windowWid, height:$(window).height()});
+                $wrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
+            }, 50);
+        });
+        $(window).trigger('resize');
+    
+        /* 3) 마우스휠을 움직이기
+            마우스휠 내리기 : delta 음수 : 오른쪽 이동 => tgIdx++ 조건 (total - 1 보다 작은 경우)
+            마우스휠 올리기 : delta 양수 : 왼쪽 이동 => tgIdx-- 조건 (0보다 큰 경우)
+        */
+       $wrap.on('mousewheel DOMMouseScroll', function (e) {
+           clearTimeout(timerWheel);
+           setTimeout(function () {
+               if ($wrap.is(':animated')) return false;
+    
+               var delta = e.originalEvent.wheelDelta || e.originalEvent.detail*-1;
+               console.log(delta);
+    
+               //if 오른쪽, else if 왼쪽
+               if (delta < 0 && tgIdx < total-1) tgIdx++;
+               else if (delta > 0 && tgIdx > 0) tgIdx--;
+    
+               //인디케이터 li태그에 .on 제어, $wrap을 marginLeft로 animate ()
+               $menu.eq(tgIdx).addClass('on').siblings().removeClass('on');
+               $wrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
+           }, 200);
+    
+    
+       });
+    
+       /* 키보드 좌우 방향키 제어 
+        → 방향키 : e.keyCode = 39,  tgIdx++(total-1(5)보다 작을 경우만) 
+        ← 방향키 : e.keyCode = 37,  tgIdx--(0보다 클경우만 가능) */
+        $(window).on('keydown', function (e) {
+            if ( $wrap.is(':animated') ) return false;
+            //console.log(e.keyCode);     //39
+            if ((e.keyCode == 39 ||  e.keyCode == 40) && tgIdx < total-1) tgIdx++;
+            else if ((e.keyCode == 37 || e.keyCode == 38) && tgIdx > 0) tgIdx--;
+            $menu.eq(tgIdx).addClass('on').siblings().removeClass('on');
+            $wrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
+        });
+    });
+    </script>
 </head>
 <body>
     <header id="header">
         <h1 class="logo"><img src="images/dajeong.png" alt="다정"></h1>
     </header>
+    <nav id="indicator">
+        <ul>
+            <li>
+                <a href="#page1">
+                    <span class="txt">main</span><span class="icon"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#page2">
+                    <span class="txt">하제건설</span><span class="icon"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#page3">
+                    <span class="txt">belle</span><span class="icon"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#page4">
+                    <span class="txt">papajohns</span><span class="icon"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     <section id="main">
         <h2 class="blind">포트폴리오 슬라이드</h2>
         <div class="wrap">
-            <article class="page1">
+            <article id="page1">
                 <img src="images/board.png" alt="">
                 <h3 class="blind"></h3>
                 <ul>
@@ -102,16 +189,16 @@
             </article>
     
             <article class="page2">
-                <div class="visual">
+                <div id="visual">
                     <img src="images/haje.jpg" alt="하제건설 페이지">
                 </div>            
             </article>
-            <article class="page3">
+            <article id="page3">
                 <div class="visual">
                     <img src="images/belle.jpg" alt="벨르 페이지">
                 </div>
             </article>
-            <article class="page4">
+            <article id="page4">
                 <div class="visual">
                     <img src="images/papajohns.jpg" alt="파파존스 페이지">
                 </div>
