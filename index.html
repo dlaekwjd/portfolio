@@ -1,214 +1,180 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="utf-8">
-    <title> portfolio  </title>
+    <meta charset="utf-8" min-width= 1680px>
+    <title> portfolio </title>
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 9]>
         <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <![endif]-->
     <script src="js/jquery-1.12.4.min.js"></script>
-    <script>
-    $(document).ready(function () {
-        var $menu = $('#indicator ul li');
-        var $wrap = $('#main .wrap');
-        var total = $wrap.children('article').size();        //6
-        var tgIdx = 0;      //현재 보여질 article의 인덱스 번호
-        var windowWid;    //윈도우창의 가로 크기
-        var timerResize = 0;      //누적되는 resize 이벤트의 실행문을 최소화 하기위해
-        var timerWheel = 0;      //누적되는 mousewheel 이벤트의 실행문을 최소화 하기위해
-    
-        //초기설정 : 인디케이터 첫번째 li.on 추가
-        $menu.eq(0).addClass('on');
-    
-        //1) resize 될 때 .wrap의 가로크기, article의 가로크기를 고정
-        $(window).on('resize', function () {
-            clearTimeout(timerResize);
-            setTimeout(function () {
-                windowWid = $(this).width();
-                //console.log(windowWid);
-                $wrap.css({width: windowWid*total}).children('article').css({width: windowWid, height:$(window).height()});
-                $wrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
-            }, 50);
-        });
-        $(window).trigger('resize');
-    
-        /* 3) 마우스휠을 움직이기
-            마우스휠 내리기 : delta 음수 : 오른쪽 이동 => tgIdx++ 조건 (total - 1 보다 작은 경우)
-            마우스휠 올리기 : delta 양수 : 왼쪽 이동 => tgIdx-- 조건 (0보다 큰 경우)
-        */
-       $wrap.on('mousewheel DOMMouseScroll', function (e) {
-           clearTimeout(timerWheel);
-           setTimeout(function () {
-               if ($wrap.is(':animated')) return false;
-    
-               var delta = e.originalEvent.wheelDelta || e.originalEvent.detail*-1;
-               console.log(delta);
-    
-               //if 오른쪽, else if 왼쪽
-               if (delta < 0 && tgIdx < total-1) tgIdx++;
-               else if (delta > 0 && tgIdx > 0) tgIdx--;
-    
-               //인디케이터 li태그에 .on 제어, $wrap을 marginLeft로 animate ()
-               $menu.eq(tgIdx).addClass('on').siblings().removeClass('on');
-               $wrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
-           }, 200);
-    
-    
-       });
-    
-       /* 키보드 좌우 방향키 제어 
-        → 방향키 : e.keyCode = 39,  tgIdx++(total-1(5)보다 작을 경우만) 
-        ← 방향키 : e.keyCode = 37,  tgIdx--(0보다 클경우만 가능) */
-        $(window).on('keydown', function (e) {
-            if ( $wrap.is(':animated') ) return false;
-            //console.log(e.keyCode);     //39
-            if ((e.keyCode == 39 ||  e.keyCode == 40) && tgIdx < total-1) tgIdx++;
-            else if ((e.keyCode == 37 || e.keyCode == 38) && tgIdx > 0) tgIdx--;
-            $menu.eq(tgIdx).addClass('on').siblings().removeClass('on');
-            $wrap.stop().animate({marginLeft: tgIdx*windowWid*-1});
-        });
-    });
-    </script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
+
 <body>
     <header id="header">
         <h1 class="logo"><img src="images/dajeong.png" alt="다정"></h1>
     </header>
     <nav id="indicator">
         <ul>
-            <li>
-                <a href="#page1">
-                    <span class="txt">main</span><span class="icon"></span>
-                </a>
-            </li>
-            <li>
-                <a href="#page2">
-                    <span class="txt">하제건설</span><span class="icon"></span>
-                </a>
-            </li>
-            <li>
-                <a href="#page3">
-                    <span class="txt">belle</span><span class="icon"></span>
-                </a>
-            </li>
-            <li>
-                <a href="#page4">
-                    <span class="txt">papajohns</span><span class="icon"></span>
-                </a>
-            </li>
+            <li id="none"><a href="">main</a></li>
+            <li><a href="">하제건설</a></li>
+            <li><a href="">Belle</a></li>
+            <li><a href="">파파존스</a></li>
         </ul>
     </nav>
     <section id="main">
         <h2 class="blind">포트폴리오 슬라이드</h2>
         <div class="wrap">
             <article id="page1">
-                <img src="images/board.png" alt="">
+                <img class="board" src="images/board.png" alt="">
                 <h3 class="blind"></h3>
                 <ul>
-                    <div id="modal1">
+                    <div id="modal1" class="md_btn">
                         <li>
-                            <a href="#modalcnt1" class="open_btn horse" aria-haspopup="dialog">
-                                <img src="images/hor.png" alt="about">
+                            <span aria-hidden="true" class="click1 arrow">click</span>
+                            <a href="#modalcnt1" class="open_btn hor" aria-haspopup="dialog"><img class="" src="images/hor.png" alt="about">
                             </a>
-                            <p aria-hidden="true">about</p>
+                            <p aria-hidden="true" class="about">about</p>
                         </li>
                     </div>
                     <li>
-                        <a href="" class="king">
-                            <img src="images/king.png" alt="portfolio">
-                        </a>
-                        <p aria-hidden="true">portfolio</p>
+                        <span aria-hidden="true" class="click2 arrow">click</span>
+                        <a href="" class="king"><img class="king" src="images/king.png" alt="portfolio"></a>
+                        <p aria-hidden="true" class="portfolio">portfolio</p>
                     </li>
-                    <div id="modal2" aria-haspopup="dialog">
+                    <div id="modal2" class="md_btn">
                         <li>
-                            <a href="#modalcnt2"  class="open_btn one">
-                                <img src="images/one-w.png" alt="skills">
-                            </a>
-                            <p aria-hidden="true">skills</p>
+                            <span aria-hidden="true" class="click3 arrow">click</span>
+                            <a href="#modalcnt2" class="open_btn one" aria-haspopup="dialog"><img src="images/one-w.png" alt="skills"></a>
+                            <p aria-hidden="true" class="skills">skills</p>
                         </li>
                     </div>
                 </ul>
-                
+
                 <div id="modalcnt1" class="md_cnt" role="dialog" aria-labelledby="tit1">
-                    <h4>about 상세 컨텐츠</h4>
-    
-                </div>
-    
-                <div id="modalcnt2" class="md_cnt" role="dialog" aria-labelledby="tit2">
-                    <h4>skills 상세 컨텐츠</h4>
-                    <img src="images/icon.png" alt="정장 입은 여자 일러스트">
-                    <ul>
+                    <h4 class="blind">about 상세 컨텐츠</h4>
+                    <img class="md_img" src="images/icon.png" alt="정장 입은 여자 일러스트">
+                    <ul class="md_txt">
                         <li>
-                            <strong>프로필</strong>
-                            <ul>
-                                <li>
-                                    <span>이름</span>
-                                    <p>임다정</p>
-                                </li>
-                                <li>
-                                    <span>생년월일</span>
-                                    <p>1997.01.03</p>
-                                </li>
-                                <li>
-                                    <span>연락처</span>
-                                    <p>010-3648-7328</p>
-                                </li>
-                                <li>
-                                    <span>이메일</span>
-                                    <p>dajeong6096@daum.net</p>
-                                </li>
-                                <li>
-                                    <span>출생</span>
-                                    <p>용인</p>
-                                </li>
-                            </ul>
+                            <dl>
+                            <dt>프로필</dt>
+                            <dd>
+                                <span>이름</span>임다정
+                            </dd>
+                            <dd>
+                                <span>생년월일</span>1997.01.03
+                            <dd>
+                                <span>연락처</span>010-3648-7328
+                            </dd>
+                            <dd>
+                                <span>이메일</span>dajeong6096@daum.net
+                            </dd>
+                            <dd>
+                                <span>출생</span>용인
+                            </dd>
+                            </dl>
                         </li>
                         <li>
-                            <strong>학력</strong>
-                            <ul>
-                                <li>
-                                    <span>2012.03 ~ 2015.02</span>
-                                    <p>용인 백현 고등학교 졸업</p>
-                                </li>
-                                <li>
-                                    <span>2015.03 ~ 2018.02</span>
-                                    <p>백석문화대학 호텔조리학과 졸업</p>
-                                </li>
-                            </ul>
+                            <dl>
+                            <dt>학력</dt>
+                            <dd>
+                                <span>2012.03 ~ 2015.02</span>용인 백현 고등학교 졸업
+                            </dd>
+                            <dd>
+                                <span>2015.03 ~ 2018.02</span>백석문화대학 호텔조리학과 졸업
+                            </dd>
+                            </dl>
                         </li>
                         <li>
-                            <strong>자격증</strong>
-                            <ul>
-                                <li>워드프로세서 3급</li>
-                                <li>웹디자인 기능사 필기 합격 (실기 8월 24일 예정)</li>
-                            </ul>
+                            <dl>
+                            <dt>자격증</dt>
+                            <dd>
+                                <span>워드프로세서 3급</span>
+                            </dd>
+                            <dd>
+                                <span>웹디자인 기능사 필기 합격 (실기 8월 24일 예정)</span>
+                            </dd>
+                            </dl>
                         </li>
                     </ul>
+                    <button class="close_btn" type="button" data-link="first"><img class="close" src="images/close.png" alt="닫기"></button>
+                </div>
+
+                <div id="modalcnt2" class="md_cnt" role="dialog" aria-labelledby="tit2">
+                    <h4 class="blind">skills 상세 컨텐츠</h4>
+                    <ul>
+                        <li>
+                            <span>HTML</span>
+                            <img class="phone" src="images/skill_phone.png" alt="">
+                            <img class= "battery" src="images/battery1.png" alt="" width="100" height="150 class
+                            battery">
+                            <p class="red">90%</p>
+                        </li>
+                        <li>
+                            <span>CSS</span>
+                            <img class="phone" src="images/skill_phone.png" alt="">
+                            <img class= "battery" src="images/battery2.png" alt="" width="100" height="150 class
+                            battery">
+                            <p class="brown">90%</p>
+                        </li>
+                        <li>
+                            <span>jQuery</span>
+                            <img class="phone" src="images/skill_phone.png" alt="">
+                            <img class= "battery" src="images/battery3.png" alt="" width="100" height="140 class
+                            battery">
+                            <p class="yellow">60%</p>
+                        </li>
+                        <li>
+                            <span>접근성</span>
+                            <img class="phone" src="images/skill_phone.png" alt="">
+                            <img class="battery" src="images/battery4.png" alt="" width="100" height="140 class
+                            battery">
+                            <p class="green">70%</p>
+                        </li>
+                    </ul>
+                    <button class="close_btn" type="button" data-link="first"><img class="close" src="images/close.png" alt="닫기"></button>
                 </div>
             </article>
-    
-            <article class="page2">
-                <div id="visual">
-                    <img src="images/haje.jpg" alt="하제건설 페이지">
-                </div>            
+
+            <article id="page2">
+                <div class="visual">
+                    <div class="pc">
+                        <a href="haje.html">
+                            <img src="images/haje.jpg" alt="하제건설 페이지" width="900" height="1664">
+                        </a>
+                    </div>
+
+                </div>
             </article>
             <article id="page3">
                 <div class="visual">
-                    <img src="images/belle.jpg" alt="벨르 페이지">
+                    <div class="pc">
+                        <a href="sub/belle.html">
+                            <img src="images/belle.jpg" alt="벨르 페이지">
+                        </a>
+                    </div>
                 </div>
             </article>
             <article id="page4">
-                <div class="visual">
-                    <img src="images/papajohns.jpg" alt="파파존스 페이지">
+                <div class="pc">
+                    <div class="visual">
+                        <a href="papa.html">
+                            <img src="images/papajohns.jpg" alt="파파존스 페이지">
+                        </a>
+                    </div>
                 </div>
             </article>
         </div>
     </section>
 
-    <div class="scroll" aria-hidden="true">scroll<img src="images/arrow.png" alt="마우스 휠 내리기"></div>
+    <div class="scroll" aria-hidden="true"><span>scroll</span><img src="images/arrow.png" alt="마우스 휠 내리기"></div>
     </div>
 
     <footer id="footer"></footer>
 </body>
+
 </html>

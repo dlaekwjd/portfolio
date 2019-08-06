@@ -33,7 +33,7 @@
 }
 
 /* 태그 초기화 */
-body, ul, h1, h2, h3, h4, p{margin: 0;padding: 0;}
+body, ul, h1, h2, h3, h4, p, dl, dt, dd{margin: 0;padding: 0;}
 body{font-family: NotoSansL;font-size: 16px;color: #333}
 ul{list-style: none}
 h1, h2, h3, h4{font-size: inherit}
@@ -68,36 +68,154 @@ button{border: none;background: none;cursor: pointer;font-family: inherit;font-s
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+@mixin visualAni ($from, $to) {
+    from{transform: translateY($from)}
+    to{transform: translateY($to)}
+}
 
+@mixin animation ($name, $duration, $delay, $iteration, $direction) {
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $iteration;
+    -webkit-animation-direction: $direction;
+
+    -moz-animation-name: $name;
+    -moz-animation-duration: $duration;
+    -moz-animation-delay: $delay;
+    -moz-animation-iteration-count: $iteration;
+    -moz-animation-direction: $direction;
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $iteration;
+    animation-direction: $direction;
+}
 
 /* skip */
 #skip a{position: absolute;top: 0;left: -9999px;z-index: 100;}
 #skip a:focus, #skip a:active{left: 0;width: 100%;text-align: center;color: lightblue;height: 50px;line-height: 50px;background: lightblue;color: #000080}
 
+body{overflow-x:hidden;overflow-y: hidden;}
+#header{position: fixed;top: 30px;left: 30px;z-index: 500}
 
-#header{
-    position: relative;
-    .logo{position: absolute;top: 30px;left: 30px;}
+#indicator{
+    position: fixed;bottom: 20px;left: 50%;margin-left: -175px;width: 350px;height: 100px;text-align: center;overflow: hidden;background: rgba(256, 256, 256, .5);z-index: 500;
+    ul li{
+        position: absolute;top: 100%;left: 0;width: 100%;opacity: 0;filter: Alpha(opacity=0);
+        a{display: block;opacity: 0;filter: Alpha(opacity=0)}
+        &.on, &.off{position: absolute;top: 0;opacity: 1;filter: Alpha(opacity=100)}
+        .clone span{transform:translateY(50px);display: inline-block;}
+        &.on .clone span{transform:translateY(0px)}
+        &.off .clone span{transform:translateY(-80px)}
+    }
 }
+#indicator ul li.on .clone span, #indicator ul li.off .clone span{transition: all 0.5s;font-family: NotoSansM;color: #000}/* #indicator ul li .clone span,  */
+#indicator ul li .clone span{opacity: 0;filter: Alpha(opacity=0);line-height: 100px;font-size: 60px}
+#indicator ul li.on .clone span, #indicator ul li.off .clone span{opacity: 1;filter: Alpha(opacity=100)}
+
+#none{opacity: 0 !important;filter: Alpha(opacity=0) !important;}
+.blank{width: 20px;}
 
 #main{
-    height: 100%;overflow: hidden;
-    .wrap{
-        height: 100%;
-        article{float: left;}
+        height: 100%;overflow: hidden;
+        .wrap{
+            height: 100%;
+            article{float: left;text-align: center;font-size: 100px;}
+        }
+    #page1{
+        position: relative;
+        .board{position: absolute;left: 50%;margin-left: -900px;top: 90px}
+        ul li{
+            span.arrow{position: absolute;left: 50%;font-size: 20px;font-family: NotoSansM;padding-right: 15px;background: url("../images/click.png") 100% 50% no-repeat}
+            .click1{top: 265px;left: 50%;margin-left: -740px;}
+            .click2{top: 10px;left: 50%;margin-left: 180px;}
+            .click3{top: 275px;left: 50%;margin-left: 420px;}
+            
+            a{position: absolute;left: 50%}
+            .hor{top: 295px;;margin-left: -755px;}
+            .king{top: 40px;margin-left: 80px;}
+            .one{top: 305px;margin-left: 405px;}
+    
+            p{position: absolute;font-size: 30px;font-family: NotoSansM;left: 50%;}
+            .about{top: 315px;margin-left: -615px;color: #fff}
+            .portfolio{top: 365px;margin-left: -125px;}
+            .skills{top: 470px;margin-left: 330px;}
+        }
+        #dim, .md_cnt{position: fixed;z-index: 1000;}
+        #dim{display: none;top: 0;left: 0;right: 0;bottom: 0;background: rgba(0, 0, 0, .6)}
+        .md_cnt{
+            visibility: hidden;background: #fff;width: 1300px;height: 800px;
+            .close{position: absolute;top: 50px;right: 50px;}
+        }
+        #modalcnt1{
+            border: 20px solid #000;@include boxSize;
+            .md_img{position: absolute;top: 120px;left: 82px;}
+            .md_txt{
+                padding-left: 500px;;padding-top: 120px;width: 650px;
+                li{margin-bottom: 100px}
+                dt{float: left;display: block;font-size: 30px;font-family: NotoSansM;width: 150px;}
+                dd{margin-left: 150px;font-size: 20px}
+                span{font-size: 20px;font-family: NotoSansR;margin-right: 60px;}
+            }
+        }
+        #modalcnt2{
+            ul li{
+                position: relative;float: left;margin-left: 30px;padding-top: 50px;
+                span{display: block;font-size: 28px;text-align: center;font-family: notoSansM;margin-bottom: 50px;}
+                .phone{padding-top: 50px;}
+                &:hover .phone{padding-top: 0;}
+                &:hover .battery, &:hover p{opacity: 1;filter: Alpha(opacity=100)}
+                .battery{opacity: 0;filter: Alpha(opacity=0);position: absolute;top: 50%;left: 50%;margin-left: -50px;}
+                p{opacity: 0;filter: Alpha(opacity=0);position: absolute;top: 40%;text-align: center;margin-left: -35px;}
+                .red{color: #d40000}
+                .brown{color: #aa4400}
+                .yellow{color: #ffcc00}
+                .green{color: #00a900}
+            }
+        }
     }
+    #page2, #page3, #page4{background: #000 no-repeat 160px 80px}
+    #page2{
+        background-image: url("../images/big1.jpg");
+        &.on .visual img{
+        @include animation (visualAni1, 10s, 1s, infinite, alternate);
+        }
+    }
+    @keyframes visualAni1{
+        @include visualAni(0, -1164px);
+    }
+    #page3{
+        background-image: url("../images/big2.jpg");background-color: #fff;
+        &.on .visual img{
+        @include animation (visualAni2, 10s, 1s, infinite, alternate);
+        }
+    }
+    @keyframes visualAni2{
+        @include visualAni(0, -2178px);
+    }
+    #page4{
+        background-image: url("../images/big3.jpg");
+        &.on .visual img{
+        @include animation (visualAni3, 10s, 1s, infinite, alternate);
+        }
+    }
+    @keyframes visualAni3{
+        @include visualAni(0, -1691px);
+    }
+    
 }
 
-.page1{
-    img{position: absolute;left: 60px;top: 80px;}
-    ul li{
-        a{position: absolute;left: 50%}
-        .horse{top: 270px;margin-left: -748px;}
-        .king{top: 18px;margin-left: 160px;}
-        .one{top: 280px;margin-left: 410px;}
+
+article{
+    position: relative;
+    .visual{
+        position: absolute;top: 230px;left: 510px;width: 900px;height: 500px;overflow: hidden
     }
 }
-
-.page2{
-
+.scroll{
+    position: fixed;top: 50%;right: 10px;
+    span{display: inline-block;font-size: 20px;font-family: NotoSansM;padding-right: 10px;}
+    img{vertical-align: middle;margin-top: -7px;}
 }
