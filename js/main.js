@@ -5,7 +5,7 @@ $(document).ready(function () {
     var $wrap = $('#main .wrap');
     var total = $wrap.children('article').size();        //6
     var tgIdx = 0;      //현재 보여질 article의 인덱스 번호
-    var windowWid;    //윈도우창의 가로 크기
+    var windowWid;		//윈도우창의 가로 크기
     var timerResize = 0;      //누적되는 resize 이벤트의 실행문을 최소화 하기위해
     var timerWheel = 0;      //누적되는 mousewheel 이벤트의 실행문을 최소화 하기위해
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
     $(window).trigger('resize');
 
-    //2) 인디케이터 클릭 : 인디케이터 li태그에 .on 제어, $ap을 maginLeft로 animate() 
+    //2) 인디케이터 클릭 : 인디케이터 li태그에 .on 제어, $wrap을 maginLeft로 animate() 
 		$menu.children().on('click', function (e) {
 			e.preventDefault();
 			if ($wrap.is(':animated')) return false;
@@ -49,18 +49,19 @@ $(document).ready(function () {
            //console.log(delta);
 
            //if 오른쪽(가장 마지막에서 더이상 제어되지 못하도록 return false), else if 왼쪽(가장 처음에서 ...) :  
-				if (delta < 0) {
-					if (tgIdx < total-1) tgIdx++;
-					else return false;
-				}
-				else if (delta > 0) {
-					if (tgIdx > 0) tgIdx--;
-                    else return false;
-				}
+            if (delta < 0) {
+                if (tgIdx < total-1) tgIdx++;
+                else return false;
+            }
+            else if (delta > 0) {
+                if (tgIdx > 0) tgIdx--;
+                else return false;
+            }
 
            //인디케이터 li태그에 .on 제어, $wrap을 marginLeft로 animate ()
-           //indicatorBg ();
+           indicatorBg ();
            txtAni ();
+           $wrap.children('article').eq(tgIdx).addClass('on').siblings().removeClass('on');
        }, 200);
    });
 
@@ -80,8 +81,9 @@ $(document).ready(function () {
             if (tgIdx > 0) tgIdx--;
             else return false;		//가장 처음에 위치하면 강제 종료
         }
-        //indicatorBg ();
+        indicatorBg ();
         txtAni ();
+        $wrap.children('article').eq(tgIdx).addClass('on').siblings().removeClass('on');
     });
 
     function txtAni () {
@@ -97,13 +99,14 @@ $(document).ready(function () {
 
     function indicatorBg () {
         //메인화면 인디케이터 배경색 제거
-    if($('#none').hasClass('on')) $('#indicator').css({background: 'transparent'});
-    else $('#indicator').css({background: 'rgba(256, 256, 256, .5)'});
+        console.log(tgIdx);
+        if (tgIdx == 0) $('#indicator').css({backgroundColor: 'transparent'});
+        else $('#indicator').css({backgroundColor: 'rgba(255, 255, 255, 0.5)'});
     }
-    //indicatorBg ();
+    indicatorBg ();
 
 
-    /* text animation */
+    /* text animation을 위한 글자 복제 */
     $menu.each(function () {
         var $before = $(this).children('a');
         $before.addClass('hide');
@@ -149,6 +152,7 @@ $(document).ready(function () {
         
     });
 
+	//메인에서 about 과 skill 체스위에서 이동시키고 모달열기
     $('#main .wrap ul li .open_btn').on('click', function (e) {
         e.preventDefault(e);
  
