@@ -1,24 +1,23 @@
 @charset "UTF-8";
 @font-face {
   font-family: NotoSansL;
-  /* 200 */
   src: url("../fonts/NotoSansKR-Light.eot");
-  src: local("※"), url("../fonts/NotoSansKR-Light.woff2") format("woff2"), url("../fonts/NotoSansKR-Light.woff") format("woff"), url("../fonts/NotoSansKR-Light.otf") format("truetype"); }
+  src: local("★"), url("../fonts/NotoSansKR-Light.woff2") format("woff2"), url("../fonts/NotoSansKR-Light.woff") format("woff"), url("../fonts/NotoSansKR-Light.otf") format("opentype"); }
 @font-face {
   font-family: NotoSansDL;
   /* 300 */
   src: url("../fonts/NotoSansKR-DemiLight.eot");
-  src: local("※"), url("../fonts/NotoSansKR-DemiLight.woff2") format("woff2"), url("../fonts/NotoSansKR-DemiLight.woff") format("woff"), url("../fonts/NotoSansKR-DemiLight.otf") format("truetype"); }
+  src: local("※"), url("../fonts/NotoSansKR-DemiLight.woff2") format("woff2"), url("../fonts/NotoSansKR-DemiLight.woff") format("woff"), url("../fonts/NotoSansKR-DemiLight.otf") format("opentype"); }
 @font-face {
   font-family: NotoSansR;
   /* 500 */
   src: url("../fonts/NotoSansKR-Regular.eot");
-  src: local("※"), url("../fonts/NotoSansKR-Regular.woff2") format("woff2"), url("../fonts/NotoSansKR-Regular.woff") format("woff"), url("../fonts/NotoSansKR-Regular.otf") format("truetype"); }
+  src: local("※"), url("../fonts/NotoSansKR-Regular.woff2") format("woff2"), url("../fonts/NotoSansKR-Regular.woff") format("woff"), url("../fonts/NotoSansKR-Regular.otf") format("opentype"); }
 @font-face {
   font-family: NotoSansM;
   /* 700 */
   src: url("../fonts/NotoSansKR-Medium.eot");
-  src: local("※"), url("../fonts/NotoSansKR-Medium.woff2") format("woff2"), url("../fonts/NotoSansKR-Medium.woff") format("woff"), url("../fonts/NotoSansKR-Medium.otf") format("truetype"); }
+  src: local("※"), url("../fonts/NotoSansKR-Medium.woff2") format("woff2"), url("../fonts/NotoSansKR-Medium.woff") format("woff"), url("../fonts/NotoSansKR-Medium.otf") format("opentype"); }
 /* 태그 초기화 */
 body, ul, h1, h2, h3, h4, p, dl, dt, dd {
   margin: 0;
@@ -87,8 +86,10 @@ button {
   width: 1300px;
   margin: 0 auto; }
 
+/* variable */
 /* @mixin */
-/* skip */
+/* skip 
+*/
 #skip a {
   position: absolute;
   top: 0;
@@ -248,8 +249,8 @@ body {
     #main #page1 .md_cnt {
       visibility: hidden;
       background: #fff;
-      width: 1300px;
-      height: 800px; }
+      width: 1600px;
+      height: 900px; }
       #main #page1 .md_cnt .close {
         position: absolute;
         top: 50px;
@@ -258,70 +259,277 @@ body {
       border: 20px solid #000;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      text-align: left; }
       #main #page1 #modalcnt1 .md_img {
         position: absolute;
         top: 120px;
         left: 82px; }
       #main #page1 #modalcnt1 .md_txt {
-        padding-left: 500px;
-        padding-top: 120px;
-        width: 650px; }
+        padding-left: 500px; }
         #main #page1 #modalcnt1 .md_txt li {
-          margin-bottom: 100px; }
-        #main #page1 #modalcnt1 .md_txt dt {
-          float: left;
-          display: block;
-          font-size: 30px;
-          font-family: NotoSansM;
-          width: 150px; }
-        #main #page1 #modalcnt1 .md_txt dd {
-          margin-left: 150px;
-          font-size: 20px; }
-        #main #page1 #modalcnt1 .md_txt span {
-          font-size: 20px;
-          font-family: NotoSansR;
-          margin-right: 60px; }
-    #main #page1 #modalcnt2 ul li {
-      position: relative;
-      float: left;
-      margin-left: 30px;
-      padding-top: 50px; }
-      #main #page1 #modalcnt2 ul li span {
-        display: block;
-        font-size: 28px;
-        text-align: center;
-        font-family: notoSansM;
-        margin-bottom: 50px; }
-      #main #page1 #modalcnt2 ul li .phone {
-        padding-top: 50px; }
-      #main #page1 #modalcnt2 ul li:hover .phone {
-        padding-top: 0; }
-      #main #page1 #modalcnt2 ul li:hover .battery, #main #page1 #modalcnt2 ul li:hover p {
+          float: left; }
+          #main #page1 #modalcnt1 .md_txt li strong {
+            display: inline-block;
+            font-size: 30px; }
+          #main #page1 #modalcnt1 .md_txt li dl {
+            margin-bottom: 50px;
+            overflow: hidden; }
+          #main #page1 #modalcnt1 .md_txt li dt {
+            float: left;
+            font-size: 20px;
+            font-family: NotoSansM; }
+          #main #page1 #modalcnt1 .md_txt li dd {
+            margin-left: 250px;
+            font-size: 20px; }
+          #main #page1 #modalcnt1 .md_txt li span {
+            font-size: 20px;
+            font-family: NotoSansR;
+            margin-right: 60px; }
+    #main #page1 #modalcnt2 {
+      width: 1600px;
+      height: 800px;
+      margin: 0 auto;
+      background: #fff; }
+      #main #page1 #modalcnt2 ul {
+        width: 1400px;
+        margin: 0 auto; }
+      #main #page1 #modalcnt2 ul li strong {
+        font-size: 20px;
+        font-family: NotoSansM;
+        text-align: center; }
+      #main #page1 #modalcnt2 ul.flashing #html .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 0s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 0s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #css .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 1s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #jquery .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 0s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 0s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #web .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 1s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #javascript .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 1s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #wordpress .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 1s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #bootstrap .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 1s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul.flashing #photoshop .inner > * {
+        -webkit-animation-name: flashing;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -moz-animation-name: flashing;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-delay: 1s;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: alternate;
+        animation-name: flashing;
+        animation-duration: 1.5s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; }
+      #main #page1 #modalcnt2 ul li {
+        float: left;
         opacity: 1;
         filter: Alpha(opacity=100); }
-      #main #page1 #modalcnt2 ul li .battery {
-        opacity: 0;
-        filter: Alpha(opacity=0);
+      #main #page1 #modalcnt2 ul li .inner {
+        position: relative;
+        width: 210px;
+        height: 243px;
+        background: url("../images/skill_phone.png");
+        margin-left: 80px; }
+      #main #page1 #modalcnt2 ul li .inner > * {
         position: absolute;
-        top: 50%;
         left: 50%;
-        margin-left: -50px; }
-      #main #page1 #modalcnt2 ul li p {
-        opacity: 0;
-        filter: Alpha(opacity=0);
-        position: absolute;
-        top: 40%;
-        text-align: center;
+        opacity: 0.4;
+        filter: Alpha(opacity=40); }
+      #main #page1 #modalcnt2 ul li:hover .inner > * {
+        opacity: 1;
+        filter: Alpha(opacity=100); }
+      #main #page1 #modalcnt2 ul li .inner svg {
+        top: 90px;
         margin-left: -35px; }
-      #main #page1 #modalcnt2 ul li .red {
-        color: #d40000; }
-      #main #page1 #modalcnt2 ul li .brown {
-        color: #aa4400; }
-      #main #page1 #modalcnt2 ul li .yellow {
-        color: #ffcc00; }
-      #main #page1 #modalcnt2 ul li .green {
-        color: #00a900; }
+      #main #page1 #modalcnt2 ul #html .inner svg {
+        fill: #f00; }
+      #main #page1 #modalcnt2 ul #css .inner svg {
+        fill: #3cff00; }
+      #main #page1 #modalcnt2 ul #jquery .inner svg {
+        fill: #01a2ff; }
+      #main #page1 #modalcnt2 ul #web .inner svg {
+        fill: #ff0; }
+      #main #page1 #modalcnt2 ul #javascript .inner svg {
+        fill: #ffc0cb; }
+      #main #page1 #modalcnt2 ul #wordpress .inner svg {
+        fill: #ffa500; }
+      #main #page1 #modalcnt2 ul #bootstrap .inner svg {
+        fill: #b31bb3; }
+      #main #page1 #modalcnt2 ul #photoshop .inner svg {
+        fill: #fff; }
+      #main #page1 #modalcnt2 ul li .inner .value {
+        top: 110px;
+        margin-left: -30px;
+        width: 60px;
+        height: 92px; }
+      #main #page1 #modalcnt2 ul li .inner .value div {
+        position: absolute;
+        width: 100%;
+        height: 0%;
+        bottom: 0;
+        -webkit-transition: height 0.5s;
+        -moz-transition: height 0.5s;
+        -o-transition: height 0.5s;
+        transition: height 0.5s; }
+      #main #page1 #modalcnt2 ul #html:hover .inner .value div {
+        background: #f00;
+        height: 90%; }
+      #main #page1 #modalcnt2 ul #css:hover .inner .value div {
+        background: #3cff00;
+        height: 90%; }
+      #main #page1 #modalcnt2 ul #jquery:hover .inner .value div {
+        background: #01a2ff;
+        height: 60%; }
+      #main #page1 #modalcnt2 ul #web:hover .inner .value div {
+        background: #ff0;
+        height: 70%; }
+      #main #page1 #modalcnt2 ul #javascript:hover .inner .value div {
+        background: #ffc0cb;
+        height: 60%; }
+      #main #page1 #modalcnt2 ul #wordpress:hover .inner .value div {
+        background: #ffa500;
+        height: 70%; }
+      #main #page1 #modalcnt2 ul #bootstrap:hover .inner .value div {
+        background: #b31bb3;
+        height: 80%; }
+      #main #page1 #modalcnt2 ul #photoshop:hover .inner .value div {
+        background: #fff;
+        height: 70%; }
+      #main #page1 #modalcnt2 ul li p {
+        top: 40px;
+        width: 100%;
+        text-align: center;
+        margin-left: -105px;
+        font-size: 27px; }
+      #main #page1 #modalcnt2 ul #html p {
+        color: #f00; }
+      #main #page1 #modalcnt2 ul #css p {
+        color: #3cff00; }
+      #main #page1 #modalcnt2 ul #jquery p {
+        color: #01a2ff; }
+      #main #page1 #modalcnt2 ul #web p {
+        color: #ff0; }
+      #main #page1 #modalcnt2 ul #javascript p {
+        color: #ffc0cb; }
+      #main #page1 #modalcnt2 ul #wordpress p {
+        color: #ffa500; }
+      #main #page1 #modalcnt2 ul #bootstrap p {
+        color: #b31bb3; }
+      #main #page1 #modalcnt2 ul #photoshop p {
+        color: #fff; }
+@keyframes flashing {
+  from {
+    opacity: 0.4;
+    filter: Alpha(opacity=40); }
+  to {
+    opacity: 0.2;
+    filter: Alpha(opacity=20); } }
   #main #page2, #main #page3, #main #page4 {
     background: #000 no-repeat 160px 80px; }
   #main #page2 {

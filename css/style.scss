@@ -1,11 +1,11 @@
 @charset "utf-8";
 @font-face{
-    font-family: NotoSansL; /* 200 */
+    font-family: NotoSansL; // 200
     src: url("../fonts/NotoSansKR-Light.eot");
-    src: local("※"),
+    src: local("★"),
          url("../fonts/NotoSansKR-Light.woff2") format("woff2"),
          url("../fonts/NotoSansKR-Light.woff") format("woff"),
-         url("../fonts/NotoSansKR-Light.otf") format("truetype")
+         url("../fonts/NotoSansKR-Light.otf") format("opentype")
 }
 @font-face{
     font-family: NotoSansDL; /* 300 */
@@ -13,7 +13,7 @@
     src: local("※"),
          url("../fonts/NotoSansKR-DemiLight.woff2") format("woff2"),
          url("../fonts/NotoSansKR-DemiLight.woff") format("woff"),
-         url("../fonts/NotoSansKR-DemiLight.otf") format("truetype")
+         url("../fonts/NotoSansKR-DemiLight.otf") format("opentype")
 }
 @font-face{
     font-family: NotoSansR; /* 500 */
@@ -21,7 +21,7 @@
     src: local("※"),
          url("../fonts/NotoSansKR-Regular.woff2") format("woff2"),
          url("../fonts/NotoSansKR-Regular.woff") format("woff"),
-         url("../fonts/NotoSansKR-Regular.otf") format("truetype")
+         url("../fonts/NotoSansKR-Regular.otf") format("opentype")
 }
 @font-face{
     font-family: NotoSansM; /* 700 */
@@ -29,7 +29,7 @@
     src: local("※"),
          url("../fonts/NotoSansKR-Medium.woff2") format("woff2"),
          url("../fonts/NotoSansKR-Medium.woff") format("woff"),
-         url("../fonts/NotoSansKR-Medium.otf") format("truetype")
+         url("../fonts/NotoSansKR-Medium.otf") format("opentype")
 }
 
 /* 태그 초기화 */
@@ -50,6 +50,16 @@ button{border: none;background: none;cursor: pointer;font-family: inherit;font-s
 .clearfix:after{content: "";display: block;clear: both}
 .blind{font-size: 0;line-height: 0;width: 1px;height: 1px;overflow: hidden;position: absolute;top: 0;left: -9999px;text-indent: -9999px}
 .area{width: 1300px;margin: 0 auto}
+
+/* variable */
+$red: #f00;
+$green: #3cff00;
+$blue: #01a2ff;
+$yellow: #ff0;
+$pink: #ffc0cb;
+$orange: #ffa500;
+$purple: #b31bb3;
+$white: #fff;
 
 /* @mixin */
 @mixin pos($val, $top, $left) {
@@ -93,7 +103,19 @@ button{border: none;background: none;cursor: pointer;font-family: inherit;font-s
     animation-direction: $direction;
 }
 
-/* skip */
+@mixin opa($num1, $num2) {
+    opacity: $num1;
+    filter: Alpha(opacity=$num2);
+}
+
+@mixin transition($value) {
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+}
+/* skip 
+*/
 #skip a{position: absolute;top: 0;left: -9999px;z-index: 100;}
 #skip a:focus, #skip a:active{left: 0;width: 100%;text-align: center;color: lightblue;height: 50px;line-height: 50px;background: lightblue;color: #000080}
 
@@ -112,7 +134,7 @@ body{overflow-x:hidden;overflow-y: hidden;}
     }
 }
 #indicator ul li.on .clone span, #indicator ul li.off .clone span{transition: all 0.5s;font-family: NotoSansM;color: #000}/* #indicator ul li .clone span,  */
-#indicator ul li .clone span{opacity: 0;filter: Alpha(opacity=0);line-height: 100px;font-size: 60px}
+#indicator ul li .clone span{@include opa(0, 0);line-height: 100px;font-size: 60px}
 #indicator ul li.on .clone span, #indicator ul li.off .clone span{opacity: 1;filter: Alpha(opacity=100)}
 
 #none{opacity: 0 !important;filter: Alpha(opacity=0) !important;}
@@ -146,36 +168,84 @@ body{overflow-x:hidden;overflow-y: hidden;}
         #dim, .md_cnt{position: fixed;z-index: 1000;}
         #dim{display: none;top: 0;left: 0;right: 0;bottom: 0;background: rgba(0, 0, 0, .6)}
         .md_cnt{
-            visibility: hidden;background: #fff;width: 1300px;height: 800px;
+            visibility: hidden;background: #fff;width: 1600px;height: 900px;
             .close{position: absolute;top: 50px;right: 50px;}
         }
         #modalcnt1{
-            border: 20px solid #000;@include boxSize;
+            border: 20px solid #000;@include boxSize;text-align: left;
             .md_img{position: absolute;top: 120px;left: 82px;}
             .md_txt{
-                padding-left: 500px;;padding-top: 120px;width: 650px;
-                li{margin-bottom: 100px}
-                dt{float: left;display: block;font-size: 30px;font-family: NotoSansM;width: 150px;}
-                dd{margin-left: 150px;font-size: 20px}
-                span{font-size: 20px;font-family: NotoSansR;margin-right: 60px;}
+                padding-left: 500px;
+                li{
+                    float: left;
+                    strong{display: inline-block;font-size: 30px}
+                    dl{margin-bottom: 50px;overflow: hidden;}
+                    dt{float:left;font-size: 20px;font-family: NotoSansM}
+                    dd{margin-left: 250px;font-size: 20px}
+                    span{font-size: 20px;font-family: NotoSansR;margin-right: 60px;}
+                }
+                
             }
         }
         #modalcnt2{
-            ul li{
-                position: relative;float: left;margin-left: 30px;padding-top: 50px;
-                span{display: block;font-size: 28px;text-align: center;font-family: notoSansM;margin-bottom: 50px;}
-                .phone{padding-top: 50px;}
-                &:hover .phone{padding-top: 0;}
-                &:hover .battery, &:hover p{opacity: 1;filter: Alpha(opacity=100)}
-                .battery{opacity: 0;filter: Alpha(opacity=0);position: absolute;top: 50%;left: 50%;margin-left: -50px;}
-                p{opacity: 0;filter: Alpha(opacity=0);position: absolute;top: 40%;text-align: center;margin-left: -35px;}
-                .red{color: #d40000}
-                .brown{color: #aa4400}
-                .yellow{color: #ffcc00}
-                .green{color: #00a900}
-            }
+            width: 1600px;height: 800px;margin: 0 auto;background: #fff;
+            ul{width: 1400px;margin: 0 auto;}
+            ul li strong{font-size: 20px;font-family: NotoSansM;text-align: center}
+
+            ul.flashing #html .inner > *{@include animation(flashing, 1.5s, 0s, infinite, alternate)}
+            ul.flashing #css .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+            ul.flashing #jquery .inner > *{@include animation(flashing, 1.5s, 0s, infinite, alternate)}
+            ul.flashing #web .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+            ul.flashing #javascript .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+            ul.flashing #wordpress .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+            ul.flashing #bootstrap .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+            ul.flashing #photoshop .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+            ul li{float: left;@include opa(1, 100);}
+            ul li .inner{position: relative;width: 210px;height: 243px;background: url("../images/skill_phone.png");margin-left: 80px}
+
+
+            ul li .inner > *{position: absolute;left: 50%;@include opa(0.4, 40)}
+            ul li:hover .inner > *{@include opa(1, 100)}
+            ul li .inner svg{top: 90px;margin-left: -35px;}
+
+            
+            ul #html .inner svg{fill: $red}
+            ul #css .inner svg{fill: $green}
+            ul #jquery .inner svg{fill: $blue}
+            ul #web .inner svg{fill: $yellow}
+            ul #javascript .inner svg{fill: $pink}
+            ul #wordpress .inner svg{fill: $orange}
+            ul #bootstrap .inner svg{fill: $purple}
+            ul #photoshop .inner svg{fill: $white}
+
+
+
+            ul li .inner .value{top: 110px;margin-left: -30px;width: 60px;height: 92px}
+            ul li .inner .value div{position: absolute;width: 100%;height: 0%;bottom: 0;@include transition(height 0.5s)}
+            ul #html:hover .inner .value div{background: $red;height: 90%;}
+            ul #css:hover .inner .value div{background: $green;height: 90%;}
+            ul #jquery:hover .inner .value div{background: $blue;height: 60%;}
+            ul #web:hover .inner .value div{background: $yellow;height: 70%;}
+            ul #javascript:hover .inner .value div{background: $pink;height: 60%;}
+            ul #wordpress:hover .inner .value div{background: $orange;height: 70%;}
+            ul #bootstrap:hover .inner .value div{background: $purple;height: 80%;}
+            ul #photoshop:hover .inner .value div{background: $white;height: 70%;}
+
+            ul li p{top: 40px;width: 100%;text-align: center;margin-left: -105px;font-size: 27px;}
+            ul #html p{color: $red}
+            ul #css p{color: $green}
+            ul #jquery p{color: $blue}
+            ul #web p{color: $yellow}
+            ul #javascript p{color: $pink}
+            ul #wordpress p{color: $orange}
+            ul #bootstrap p{color: $purple}
+            ul #photoshop p{color: $white}
         }
     }
+    @keyframes flashing{
+        from{@include opa(0.4, 40)}
+        to{@include opa(0.2, 20)}
+      }   
     #page2, #page3, #page4{background: #000 no-repeat 160px 80px}
     #page2{
         background-image: url("../images/big1.jpg");
@@ -189,6 +259,7 @@ body{overflow-x:hidden;overflow-y: hidden;}
     #page3{
         background-image: url("../images/big2.jpg");background-color: #fff;
         &.on .visual img{
+
         @include animation (visualAni2, 10s, 1s, infinite, alternate);
         }
     }
