@@ -238,66 +238,113 @@ body {
       margin-left: 330px; }
     #main #page1 #dim, #main #page1 .md_cnt {
       position: fixed;
+      display: none;
       z-index: 1000; }
     #main #page1 #dim {
-      display: none;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       background: rgba(0, 0, 0, 0.6); }
     #main #page1 .md_cnt {
-      visibility: hidden;
       background: #fff;
-      width: 1600px;
-      height: 900px; }
+      width: 1400px;
+      height: 800px;
+      border: 15px solid #000;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
       #main #page1 .md_cnt .close {
         position: absolute;
         top: 50px;
         right: 50px; }
     #main #page1 #modalcnt1 {
-      border: 20px solid #000;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
       text-align: left; }
       #main #page1 #modalcnt1 .md_img {
         position: absolute;
-        top: 120px;
+        top: 80px;
         left: 82px; }
       #main #page1 #modalcnt1 .md_txt {
-        padding-left: 500px; }
-        #main #page1 #modalcnt1 .md_txt li {
-          float: left; }
-          #main #page1 #modalcnt1 .md_txt li strong {
-            display: inline-block;
-            font-size: 30px; }
-          #main #page1 #modalcnt1 .md_txt li dl {
-            margin-bottom: 50px;
-            overflow: hidden; }
-          #main #page1 #modalcnt1 .md_txt li dt {
+        padding-left: 500px;
+        float: left;
+        margin: 80px auto;
+        width: 700px;
+        height: 500px; }
+        #main #page1 #modalcnt1 .md_txt:after {
+          content: "";
+          display: block;
+          clear: both; }
+        #main #page1 #modalcnt1 .md_txt > li {
+          margin-bottom: 80px;
+          width: 700px;
+          height: 200px; }
+          #main #page1 #modalcnt1 .md_txt > li + li {
+            height: 100px; }
+          #main #page1 #modalcnt1 .md_txt > li strong {
+            display: block;
+            font-size: 35px;
+            margin-bottom: 20px;
+            font-family: NotoSansR; }
+          #main #page1 #modalcnt1 .md_txt > li .m_tit, #main #page1 #modalcnt1 .md_txt > li .m_txt {
             float: left;
-            font-size: 20px;
-            font-family: NotoSansM; }
-          #main #page1 #modalcnt1 .md_txt li dd {
-            margin-left: 250px;
-            font-size: 20px; }
-          #main #page1 #modalcnt1 .md_txt li span {
-            font-size: 20px;
-            font-family: NotoSansR;
-            margin-right: 60px; }
-    #main #page1 #modalcnt2 {
-      width: 1600px;
-      height: 800px;
-      margin: 0 auto;
-      background: #fff; }
-      #main #page1 #modalcnt2 ul {
-        width: 1400px;
-        margin: 0 auto; }
-      #main #page1 #modalcnt2 ul li strong {
-        font-size: 20px;
-        font-family: NotoSansM;
-        text-align: center; }
+            font-size: 22px; }
+          #main #page1 #modalcnt1 .md_txt > li .m_tit {
+            margin-right: 100px;
+            font-family: NotoSansR; }
+    #main #page1 #modalcnt2 ul {
+      width: 1080px;
+      margin: 50px auto; }
+      #main #page1 #modalcnt2 ul li {
+        float: left;
+        height: 320px;
+        opacity: 1;
+        filter: Alpha(opacity=100); }
+        #main #page1 #modalcnt2 ul li:nth-child(n+4) {
+          margin-bottom: 30px; }
+        #main #page1 #modalcnt2 ul li:not(:nth-child(4n+1)) {
+          margin-left: 80px; }
+        #main #page1 #modalcnt2 ul li .inner {
+          position: relative;
+          width: 210px;
+          height: 243px;
+          background: url("../images/skill_phone.png"); }
+        #main #page1 #modalcnt2 ul li strong {
+          display: block;
+          font-size: 25px;
+          line-height: 3;
+          font-family: NotoSansR;
+          text-align: center; }
+        #main #page1 #modalcnt2 ul li .inner .value {
+          top: 110px;
+          margin-left: -30px;
+          width: 60px;
+          height: 92px; }
+        #main #page1 #modalcnt2 ul li .inner .value div {
+          position: absolute;
+          width: 100%;
+          height: 0%;
+          bottom: 0;
+          -webkit-transition: height 0.5s;
+          -moz-transition: height 0.5s;
+          -o-transition: height 0.5s;
+          transition: height 0.5s; }
+        #main #page1 #modalcnt2 ul li p {
+          top: 40px;
+          width: 100%;
+          text-align: center;
+          margin-left: -105px;
+          font-size: 27px; }
+        #main #page1 #modalcnt2 ul li .inner > * {
+          position: absolute;
+          left: 50%;
+          opacity: 0.4;
+          filter: Alpha(opacity=40); }
+        #main #page1 #modalcnt2 ul li:hover .inner > * {
+          opacity: 1;
+          filter: Alpha(opacity=100); }
+        #main #page1 #modalcnt2 ul li .inner svg {
+          top: 90px;
+          margin-left: -35px; }
       #main #page1 #modalcnt2 ul.flashing #html .inner > * {
         -webkit-animation-name: flashing;
         -webkit-animation-duration: 1.5s;
@@ -426,27 +473,6 @@ body {
         animation-delay: 1s;
         animation-iteration-count: infinite;
         animation-direction: alternate; }
-      #main #page1 #modalcnt2 ul li {
-        float: left;
-        opacity: 1;
-        filter: Alpha(opacity=100); }
-      #main #page1 #modalcnt2 ul li .inner {
-        position: relative;
-        width: 210px;
-        height: 243px;
-        background: url("../images/skill_phone.png");
-        margin-left: 80px; }
-      #main #page1 #modalcnt2 ul li .inner > * {
-        position: absolute;
-        left: 50%;
-        opacity: 0.4;
-        filter: Alpha(opacity=40); }
-      #main #page1 #modalcnt2 ul li:hover .inner > * {
-        opacity: 1;
-        filter: Alpha(opacity=100); }
-      #main #page1 #modalcnt2 ul li .inner svg {
-        top: 90px;
-        margin-left: -35px; }
       #main #page1 #modalcnt2 ul #html .inner svg {
         fill: #f00; }
       #main #page1 #modalcnt2 ul #css .inner svg {
@@ -463,20 +489,6 @@ body {
         fill: #b31bb3; }
       #main #page1 #modalcnt2 ul #photoshop .inner svg {
         fill: #fff; }
-      #main #page1 #modalcnt2 ul li .inner .value {
-        top: 110px;
-        margin-left: -30px;
-        width: 60px;
-        height: 92px; }
-      #main #page1 #modalcnt2 ul li .inner .value div {
-        position: absolute;
-        width: 100%;
-        height: 0%;
-        bottom: 0;
-        -webkit-transition: height 0.5s;
-        -moz-transition: height 0.5s;
-        -o-transition: height 0.5s;
-        transition: height 0.5s; }
       #main #page1 #modalcnt2 ul #html:hover .inner .value div {
         background: #f00;
         height: 90%; }
@@ -501,12 +513,6 @@ body {
       #main #page1 #modalcnt2 ul #photoshop:hover .inner .value div {
         background: #fff;
         height: 70%; }
-      #main #page1 #modalcnt2 ul li p {
-        top: 40px;
-        width: 100%;
-        text-align: center;
-        margin-left: -105px;
-        font-size: 27px; }
       #main #page1 #modalcnt2 ul #html p {
         color: #f00; }
       #main #page1 #modalcnt2 ul #css p {
@@ -531,7 +537,21 @@ body {
     opacity: 0.2;
     filter: Alpha(opacity=20); } }
   #main #page2, #main #page3, #main #page4 {
-    background: #000 no-repeat 160px 80px; }
+    position: relative;
+    background: #000 no-repeat center center; }
+    #main #page2 span, #main #page3 span, #main #page4 span {
+      position: absolute;
+      font-size: 16px;
+      font-family: NotoSansR;
+      color: #fff;
+      background: #999;
+      width: 100px;
+      height: 100px;
+      top: 30px;
+      left: 770px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 100px; }
   #main #page2 {
     background-image: url("../images/big1.jpg"); }
     #main #page2.on .visual img {

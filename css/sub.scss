@@ -1,0 +1,126 @@
+@charset "utf-8";
+@font-face{
+    font-family: NotoSansL; // 200
+    src: url("../fonts/NotoSansKR-Light.eot");
+    src: local("★"),
+         url("../fonts/NotoSansKR-Light.woff2") format("woff2"),
+         url("../fonts/NotoSansKR-Light.woff") format("woff"),
+         url("../fonts/NotoSansKR-Light.otf") format("opentype")
+}
+@font-face{
+    font-family: NotoSansDL; /* 300 */
+    src: url("../fonts/NotoSansKR-DemiLight.eot");
+    src: local("※"),
+         url("../fonts/NotoSansKR-DemiLight.woff2") format("woff2"),
+         url("../fonts/NotoSansKR-DemiLight.woff") format("woff"),
+         url("../fonts/NotoSansKR-DemiLight.otf") format("opentype")
+}
+@font-face{
+    font-family: NotoSansR; /* 500 */
+    src: url("../fonts/NotoSansKR-Regular.eot");
+    src: local("※"),
+         url("../fonts/NotoSansKR-Regular.woff2") format("woff2"),
+         url("../fonts/NotoSansKR-Regular.woff") format("woff"),
+         url("../fonts/NotoSansKR-Regular.otf") format("opentype")
+}
+@font-face{
+    font-family: NotoSansM; /* 700 */
+    src: url("../fonts/NotoSansKR-Medium.eot");
+    src: local("※"),
+         url("../fonts/NotoSansKR-Medium.woff2") format("woff2"),
+         url("../fonts/NotoSansKR-Medium.woff") format("woff"),
+         url("../fonts/NotoSansKR-Medium.otf") format("opentype")
+}
+
+/* 태그 초기화 */
+body, ul, h1, h2, h3, h4, p, dl, dt, dd{margin: 0;padding: 0;}
+body{font-family: NotoSansL;font-size: 16px;color: #333}
+ul{list-style: none}
+h1, h2, h3, h4{font-size: inherit}
+a:link, a:visited, a:hover, a:active{color: inherit;text-decoration: none}
+img{border: none;vertical-align: top}
+header, nav, section, footer{display: block}
+button{border: none;background: none;cursor: pointer;font-family: inherit;font-size: inherit; color: inherit}
+
+/* 공통 클래스 */
+.p_a{position: absolute}
+.p_r{position: relative;}
+.f_l{float: left;}
+.f_r{float: right}
+.clearfix:after{content: "";display: block;clear: both}
+.blind{font-size: 0;line-height: 0;width: 1px;height: 1px;overflow: hidden;position: absolute;top: 0;left: -9999px;text-indent: -9999px}
+.area{width: 1300px;margin: 0 auto}
+
+/* variable */
+$red: #f00;
+$green: #3cff00;
+$blue: #01a2ff;
+$yellow: #ff0;
+$pink: #ffc0cb;
+$orange: #ffa500;
+$purple: #b31bb3;
+$white: #fff;
+
+/* @mixin */
+@mixin pos($val, $top, $left) {
+    position: $val;
+    top: $top;
+    left: $left;
+}
+@mixin bgSize($val) {
+    -webkit-background-size: $val;
+    -moz-background-size: $val;
+    -o-background-size: $val;
+    background-size: $val;
+}
+@mixin boxSize {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@mixin visualAni ($from, $to) {
+    from{transform: translateY($from)}
+    to{transform: translateY($to)}
+}
+
+@mixin animation ($name, $duration, $delay, $iteration, $direction) {
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $iteration;
+    -webkit-animation-direction: $direction;
+
+    -moz-animation-name: $name;
+    -moz-animation-duration: $duration;
+    -moz-animation-delay: $delay;
+    -moz-animation-iteration-count: $iteration;
+    -moz-animation-direction: $direction;
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $iteration;
+    animation-direction: $direction;
+}
+
+@mixin opa($num1, $num2) {
+    opacity: $num1;
+    filter: Alpha(opacity=$num2);
+}
+
+@mixin transition($value) {
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+}
+@mixin clearfix() {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+#skip a{position: absolute;top: 0;left: -9999px;z-index: 100;}
+#skip a:focus, #skip a:active{left: 0;width: 100%;text-align: center;color: lightblue;height: 50px;line-height: 50px;background: lightblue;color: #000080}

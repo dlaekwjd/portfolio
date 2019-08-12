@@ -114,6 +114,13 @@ $white: #fff;
     -o-transition: $value;
     transition: $value;
 }
+@mixin clearfix() {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
 /* skip 
 */
 #skip a{position: absolute;top: 0;left: -9999px;z-index: 100;}
@@ -165,88 +172,91 @@ body{overflow-x:hidden;overflow-y: hidden;}
             .portfolio{top: 365px;margin-left: -125px;}
             .skills{top: 470px;margin-left: 330px;}
         }
-        #dim, .md_cnt{position: fixed;z-index: 1000;}
-        #dim{display: none;top: 0;left: 0;right: 0;bottom: 0;background: rgba(0, 0, 0, .6)}
+        #dim, .md_cnt{position: fixed;display: none;z-index: 1000;}
+        #dim{top: 0;left: 0;right: 0;bottom: 0;background: rgba(0, 0, 0, .6)}
         .md_cnt{
-            visibility: hidden;background: #fff;width: 1600px;height: 900px;
+            background: #fff;width: 1400px;height: 800px;border: 15px solid #000;@include boxSize;
             .close{position: absolute;top: 50px;right: 50px;}
         }
         #modalcnt1{
-            border: 20px solid #000;@include boxSize;text-align: left;
-            .md_img{position: absolute;top: 120px;left: 82px;}
+            text-align: left;
+            .md_img{position: absolute;top: 80px;left: 82px;}
             .md_txt{
-                padding-left: 500px;
-                li{
-                    float: left;
-                    strong{display: inline-block;font-size: 30px}
-                    dl{margin-bottom: 50px;overflow: hidden;}
-                    dt{float:left;font-size: 20px;font-family: NotoSansM}
-                    dd{margin-left: 250px;font-size: 20px}
-                    span{font-size: 20px;font-family: NotoSansR;margin-right: 60px;}
+                padding-left: 500px;float: left;margin: 80px auto;@include clearfix();width: 700px;height: 500px;
+                > li{
+                    margin-bottom: 80px;width: 700px;height: 200px;
+                    & + li{height: 100px;}
+                    strong{display: block;font-size: 35px;margin-bottom: 20px;font-family: NotoSansR}
+                    .m_tit, .m_txt{float: left;font-size: 22px}
+                    .m_tit{margin-right: 100px;font-family: NotoSansR}
                 }
-                
             }
         }
         #modalcnt2{
-            width: 1600px;height: 800px;margin: 0 auto;background: #fff;
-            ul{width: 1400px;margin: 0 auto;}
-            ul li strong{font-size: 20px;font-family: NotoSansM;text-align: center}
+            ul{
+                width: 1080px;margin: 50px auto;
+                li{
+                    float: left;height: 320px;@include opa(1, 100);
+                    &:nth-child(n+4){margin-bottom: 30px;}
+                    &:not(:nth-child(4n+1)){margin-left: 80px;}
+                    .inner{position: relative;width: 210px;height: 243px;background: url("../images/skill_phone.png");}
+                    strong{display: block;font-size: 25px;line-height: 3;font-family: NotoSansR;text-align: center}
+                    .inner .value{top: 110px;margin-left: -30px;width: 60px;height: 92px}
+                    .inner .value div{position: absolute;width: 100%;height: 0%;bottom: 0;@include transition(height 0.5s)}
+                    p{top: 40px;width: 100%;text-align: center;margin-left: -105px;font-size: 27px;}
+                    .inner > *{position: absolute;left: 50%;@include opa(0.4, 40)}
+                    &:hover .inner > *{@include opa(1, 100)}
+                    .inner svg{top: 90px;margin-left: -35px;}
+                }
+                &.flashing #html .inner > *{@include animation(flashing, 1.5s, 0s, infinite, alternate)}
+                &.flashing #css .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+                &.flashing #jquery .inner > *{@include animation(flashing, 1.5s, 0s, infinite, alternate)}
+                &.flashing #web .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+                &.flashing #javascript .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+                &.flashing #wordpress .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+                &.flashing #bootstrap .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
+                &.flashing #photoshop .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
 
-            ul.flashing #html .inner > *{@include animation(flashing, 1.5s, 0s, infinite, alternate)}
-            ul.flashing #css .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
-            ul.flashing #jquery .inner > *{@include animation(flashing, 1.5s, 0s, infinite, alternate)}
-            ul.flashing #web .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
-            ul.flashing #javascript .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
-            ul.flashing #wordpress .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
-            ul.flashing #bootstrap .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
-            ul.flashing #photoshop .inner > *{@include animation(flashing, 1.5s, 1s, infinite, alternate)}
-            ul li{float: left;@include opa(1, 100);}
-            ul li .inner{position: relative;width: 210px;height: 243px;background: url("../images/skill_phone.png");margin-left: 80px}
+                
 
+                #html .inner svg{fill: $red}
+                #css .inner svg{fill: $green}
+                #jquery .inner svg{fill: $blue}
+                #web .inner svg{fill: $yellow}
+                #javascript .inner svg{fill: $pink}
+                #wordpress .inner svg{fill: $orange}
+                #bootstrap .inner svg{fill: $purple}
+                #photoshop .inner svg{fill: $white}
 
-            ul li .inner > *{position: absolute;left: 50%;@include opa(0.4, 40)}
-            ul li:hover .inner > *{@include opa(1, 100)}
-            ul li .inner svg{top: 90px;margin-left: -35px;}
+                #html:hover .inner .value div{background: $red;height: 90%;}
+                #css:hover .inner .value div{background: $green;height: 90%;}
+                #jquery:hover .inner .value div{background: $blue;height: 60%;}
+                #web:hover .inner .value div{background: $yellow;height: 70%;}
+                #javascript:hover .inner .value div{background: $pink;height: 60%;}
+                #wordpress:hover .inner .value div{background: $orange;height: 70%;}
+                #bootstrap:hover .inner .value div{background: $purple;height: 80%;}
+                #photoshop:hover .inner .value div{background: $white;height: 70%;}
 
-            
-            ul #html .inner svg{fill: $red}
-            ul #css .inner svg{fill: $green}
-            ul #jquery .inner svg{fill: $blue}
-            ul #web .inner svg{fill: $yellow}
-            ul #javascript .inner svg{fill: $pink}
-            ul #wordpress .inner svg{fill: $orange}
-            ul #bootstrap .inner svg{fill: $purple}
-            ul #photoshop .inner svg{fill: $white}
-
-
-
-            ul li .inner .value{top: 110px;margin-left: -30px;width: 60px;height: 92px}
-            ul li .inner .value div{position: absolute;width: 100%;height: 0%;bottom: 0;@include transition(height 0.5s)}
-            ul #html:hover .inner .value div{background: $red;height: 90%;}
-            ul #css:hover .inner .value div{background: $green;height: 90%;}
-            ul #jquery:hover .inner .value div{background: $blue;height: 60%;}
-            ul #web:hover .inner .value div{background: $yellow;height: 70%;}
-            ul #javascript:hover .inner .value div{background: $pink;height: 60%;}
-            ul #wordpress:hover .inner .value div{background: $orange;height: 70%;}
-            ul #bootstrap:hover .inner .value div{background: $purple;height: 80%;}
-            ul #photoshop:hover .inner .value div{background: $white;height: 70%;}
-
-            ul li p{top: 40px;width: 100%;text-align: center;margin-left: -105px;font-size: 27px;}
-            ul #html p{color: $red}
-            ul #css p{color: $green}
-            ul #jquery p{color: $blue}
-            ul #web p{color: $yellow}
-            ul #javascript p{color: $pink}
-            ul #wordpress p{color: $orange}
-            ul #bootstrap p{color: $purple}
-            ul #photoshop p{color: $white}
+                #html p{color: $red}
+                #css p{color: $green}
+                #jquery p{color: $blue}
+                #web p{color: $yellow}
+                #javascript p{color: $pink}
+                #wordpress p{color: $orange}
+                #bootstrap p{color: $purple}
+                #photoshop p{color: $white}
+            }
         }
     }
     @keyframes flashing{
         from{@include opa(0.4, 40)}
         to{@include opa(0.2, 20)}
       }   
-    #page2, #page3, #page4{background: #000 no-repeat 160px 80px}
+    #page2, #page3, #page4{
+        position: relative;background: #000 no-repeat center center;
+        span{position: absolute;font-size: 16px;font-family: NotoSansR;color: #fff;background: #999;width: 100px;height: 100px;top: 30px;left: 770px;border-radius: 50%;text-align: center;line-height: 100px;} 
+    
+    }
     #page2{
         background-image: url("../images/big1.jpg");
         &.on .visual img{

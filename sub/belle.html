@@ -3,9 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title> belle  portfolio </title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/sub.js"></script>
 </head>
+
+<div id="skip">
+    <a href="#content">본문 바로가기</a>
+</div>
+    
 <body>
     <header id="header">
+        <h1><img src="" alt=""></h1>
         <h2>belle</h2>
         <div class="info">
             <strong>PROJECT INFO</strong>
@@ -35,86 +48,121 @@
             </dl>
         </div>
     </header>
-    <section id="belleCnt1">
-        <a href="">사이트 보러가기</a>
-        <h3><span class="gray">01</span>Over View</h3>
-        <strong>소비자들을 끌어당길 수 있는 화장품 페이지 제작</strong>
-        <p>화장품 브랜드 페이지 제작을 하였습니다. 그 안에서도 두가지 느낌으로 나눠 모든 사람들이 만족할 수 있는 느낌을 주고 싶었습니다. <br>white 페이지에서는 산뜻하고 깔끔한 느낌 black에서는 강령하고 강조되는 느낌을 주었습니다.</p>
-        <div class="accordion">
-            <div><img src="../images/belle4.jpg" alt="belle 메인 페이지"></div>
-            <div><img src="../images/belle1.jpg" alt="product 메인 페이지"></div>
-            <div><img src="../images/belle2.jpg" alt="lip 페이지"></div>
-            <div><img src="../images/belle3.jpg" alt="check 페이지"></div>
-        </div>
-    </section>
-    <section id="belleCnt2">
-        <a href="">사이트 보러가기</a>
-        <h3><span class="gray">02</span>Detail View</h3>
-        <strong>크로스 부라우징과 웹 표준, 접근성을 만족하는 사이트 마크업과 jQuery를 이용해서 부족한 접근성 제어</strong>
-        <div class="point1">
-            <strong>각 a태그 href에 링크를 걸어 관련된 페이지로 이동할 수 있게 하였습니다. <br> 이미지 alt 속성에 적절한 텍스트를 적어주었습니다.</strong>
-        </div>
-        <div class="point2">
-            <strong>스크롤을 내리면 일정시간에 도달했을때 서서히 글씨가 나타나도록 jQuery로 fade 효과를 주었습니다.</strong>
-        </div>
-        <div class="point3">
-            <strong>자동으로 실행되는 슬라이더에 인디케이터 버튼, 시작과 정지 버튼, 이전과 다음 버튼 모두 넣어 제어해주었습니다.</strong>
-        </div>
-        <div class="point4">
-            <strong>찍혀진 도장갯수와 해당갯수를 채워 쿠폰이 발급되었을때 사용자가 확인할 수 있도록 위에 표시해주었습니다.</strong>
-        </div>
-    </section>
-    <section id="belleCnt3">
-        <h3><span class="gray">02</span>Design</h3>
-        <div class="color">
-            <ul>
-                <li class="bg_color1">
-                    <span class="c_name">Carmine</span>
-                    <div class="c_code">#960018</div>
-                </li>
-                <li class="bg_color2">
-                    <span class="c_name">Rose Bud</span>
-                    <div class="c_code">#FBB2A3</div>
-                </li>
-                <li class="bg_color3">
-                    <span class="c_name">Red</span>
-                    <div class="c_code">#ff0000</div>
-                </li>
-                <li class="bg_color4">
-                    <span class="c_name">Purple Pizzazz</span>
-                    <div class="c_code">#FF00CC</div>
-                </li>
-                <li class="bg_color5">
-                    <span class="c_name">Blaze Orange</span>
-                    <div class="c_code">#FF6600</div>
-                </li>
-            </ul>
-        </div>
-        <div class="font">
-            <ul>
-                <li>
-                    <span class="f_name">Carmine</span>
-                    <div class="f_size">#960018</div>
-                </li>
-                <li>
-                    <span class="f_name">Rose Bud</span>
-                    <div class="f_size">#FBB2A3</div>
-                </li>
-                <li>
-                    <span class="f_name">Red</span>
-                    <div class="f_size">#ff0000</div>
-                </li>
-                <li>
-                    <span class="f_name">Purple Pizzazz</span>
-                    <div class="f_size">#FF00CC</div>
-                </li>
-                <li>
-                    <span class="f_name">Blaze Orange</span>
-                    <div class="f_size">#FF6600</div>
-                </li>
-            </ul>
-        </div>
-    </section>
+    <div id="content">
+        <section id="belleCnt1">
+            <a href="">사이트 보러가기</a>
+            <h3><span class="gray">01</span>Over View</h3>
+            <strong>소비자들을 끌어당길 수 있는 화장품 페이지 제작</strong>
+            <p>화장품 브랜드 페이지 제작을 하였습니다. 그 안에서도 두가지 느낌으로 나눠 모든 사람들이 만족할 수 있는 느낌을 주고 싶었습니다. <br>white 페이지에서는 산뜻하고 깔끔한 느낌 black에서는 강령하고 강조되는 느낌을 주었습니다.</p>
+            <div class="accordion">
+                <div><img src="../images/belle4.jpg" alt="belle 메인 페이지"></div>
+                <div><img src="../images/belle1.jpg" alt="product 메인 페이지"></div>
+                <div><img src="../images/belle2.jpg" alt="lip 페이지"></div>
+                <div><img src="../images/belle3.jpg" alt="check 페이지"></div>
+            </div>
+        </section>
+        <section id="belleCnt2">
+            <h3><span class="gray">02</span>Detail View</h3>
+            <strong>크로스 부라우징과 웹 표준, 접근성을 만족하는 사이트 <br>마크업과 jQuery를 이용해서 부족한 접근성 제어</strong>
+            <div class="detailSlider">
+                <ul class="visual">
+                    <li>
+                        <div class="right_img">
+                            <img src="../images/fade.png">
+                        </div>
+                        <div class="txtbox">
+                           <h4>Fade</h4>
+                           <strong>시간차들 두어 글자들이 서서히 나타나게 
+                                보여지는 fade 효과를 주었습니다.</strong>
+                            <img src="../images/fade_txt.gif" alt=""> 
+                            </div>
+                    </li>
+                    <li>
+                        <div class="right_img">
+                            <img src="../images/tab.png" alt="">
+                        </div>
+                        <div class="txtbox">
+                           <h4>Tab 접근성</h4>
+                           <strong>tab 접근성을 살려서 aria 속성과 <br>role 속성을 살려 마크업 하였습니다.</strong>
+                           <img src="../images/tab_txt.gif" alt=""> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="right_img">
+                            <img src="../images/check.png" alt="">
+                        </div>
+                        <div class="txtbox">
+                           <h4>Check</h4>
+                           <strong>달력에 체크한 부분의 내용을 <br>받아와서 위에 나타나게 해주었습니다.</strong>
+                           <img src="../images/check_txt.gif" alt=""> 
+                        </div>
+                    </li>
+                </ul>
+                <div class="controlbox">
+                    <div class="play_stop">
+                        <button type="button" class="play">play</button>
+                        <button type="button" class="stop on">stop</button>
+                    </div>
+                    <ul class="paging">
+                        <li><a href="">fade</a></li>
+                        <li><a href="">tab</a></li>
+                        <li><a href="">check</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="belleCnt3">
+            <h3><span class="gray">02</span>Design</h3>
+            <div class="color">
+                <ul>
+                    <li class="bg_color1">
+                        <span class="c_name">Carmine</span>
+                        <div class="c_code">#960018</div>
+                    </li>
+                    <li class="bg_color2">
+                        <span class="c_name">Rose Bud</span>
+                        <div class="c_code">#FBB2A3</div>
+                    </li>
+                    <li class="bg_color3">
+                        <span class="c_name">Red</span>
+                        <div class="c_code">#ff0000</div>
+                    </li>
+                    <li class="bg_color4">
+                        <span class="c_name">Purple Pizzazz</span>
+                        <div class="c_code">#FF00CC</div>
+                    </li>
+                    <li class="bg_color5">
+                        <span class="c_name">Blaze Orange</span>
+                        <div class="c_code">#FF6600</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="font">
+                <ul>
+                    <li>
+                        <span class="f_name">Carmine</span>
+                        <div class="f_size">#960018</div>
+                    </li>
+                    <li>
+                        <span class="f_name">Rose Bud</span>
+                        <div class="f_size">#FBB2A3</div>
+                    </li>
+                    <li>
+                        <span class="f_name">Red</span>
+                        <div class="f_size">#ff0000</div>
+                    </li>
+                    <li>
+                        <span class="f_name">Purple Pizzazz</span>
+                        <div class="f_size">#FF00CC</div>
+                    </li>
+                    <li>
+                        <span class="f_name">Blaze Orange</span>
+                        <div class="f_size">#FF6600</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
     <footer id="footer"></footer>
 </body>
 </html>

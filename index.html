@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-    <meta charset="utf-8" min-width=1680px>
+    <meta charset="utf-8">
     <title> portfolio </title>
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 9]>
@@ -14,6 +14,10 @@
     <script src="js/main.js"></script>
 </head>
 
+<div id="skip">
+    <a href="#main">본문 바로가기</a>
+</div>
+    
 <body>
     <header id="header">
         <h1 class="logo"><a href="index.html"><img src="images/dajeong.png" alt="다정"></a></h1>
@@ -31,66 +35,78 @@
         <div class="wrap">
             <article id="page1">
                 <img class="board" src="images/board.png" alt="">
-                <h3 class="blind"></h3>
+                <h3 class="blind">메인</h3>
                 <ul>
-                    <div id="modal1" class="md_btn">
-                        <li>
+                    <li>
+                        <div id="modal1" class="md_btn">
                             <span aria-hidden="true" class="click1 arrow">click</span>
-                            <a href="#modalcnt1" class="open_btn hor" aria-haspopup="dialog"><img class=""
-                                    src="images/hor.png" alt="about">
+                            <a href="#modalcnt1" class="open_btn hor" aria-haspopup="dialog"><img src="images/hor.png" alt="about">
                             </a>
                             <p aria-hidden="true" class="about">about</p>
-                        </li>
-                    </div>
+                        </div>
+                    </li>
                     <li>
                         <span aria-hidden="true" class="click2 arrow">click</span>
                         <a href="" class="king"><img class="king" src="images/king.png" alt="portfolio"></a>
                         <p aria-hidden="true" class="portfolio">portfolio</p>
                     </li>
-                    <div id="modal2" class="md_btn">
-                        <li>
+                    <li>
+                        <div id="modal2" class="md_btn">
                             <span aria-hidden="true" class="click3 arrow">click</span>
-                            <a href="#modalcnt2" class="open_btn one" aria-haspopup="dialog"><img src="images/one-w.png"
-                                    alt="skills"></a>
+                            <a href="#modalcnt2" class="open_btn one" aria-haspopup="dialog"><img src="images/one-w.png" alt="skills"></a>
                             <p aria-hidden="true" class="skills">skills</p>
-                        </li>
-                    </div>
+                        </div>
+                    </li>
                 </ul>
 
                 <div id="modalcnt1" class="md_cnt" role="dialog" aria-labelledby="tit1">
-                    <h4 class="blind">about 상세 컨텐츠</h4>
+                    <h4 class="blind" id="tit1">about 상세 컨텐츠</h4>
                     <img class="md_img" src="images/icon.png" alt="정장 입은 여자 일러스트">
                     <ul class="md_txt">
-                        <li class="clearfix">
+                        <li>
                             <strong>프로필</strong>
-                            <dl>
-                                <dt>이름</dt>
-                                <dd>임다정</dd>
-                                <dt>생년월일</dt>
-                                <dd>1997.01.03</dd>
-                                <dt>연락처</dt>
-                                <dd>010-3648-7328</dd>
-                                <dt>이메일</dt>
-                                <dd>dajeong6096@daum.net</dd>
-                                <dt>출생</dt>
-                                <dd>용인</dd>
-                            </dl>
-                            </dt>
+                            <div class="m_tit">
+                                <ul>
+                                    <li>이름</li>
+                                    <li>생년월일</li>
+                                    <li>연락처</li>
+                                    <li>이메일</li>
+                                    <li>출생</li>
+                                </ul>
+                            </div>
+                            <div class="m_txt">
+                                <ul>
+                                    <li>임다정</li>
+                                    <li>1997.01.03</li>
+                                    <li>010-3648-7328</li>
+                                    <li>dajeong6096@daum.net</li>
+                                    <li>용인</li>
+                                </ul>
+                            </div>
+                        </li>
                         <li>
                             <strong>학력</strong>
-                            <dl>
-                                <dt>2012.03 ~ 2015.02</dt>
-                                <dd>용인 백현 고등학교 졸업</dd>
-                                <dt>2015.03 ~ 2018.02</dt>
-                                <dd>백석문화대학 호텔조리학과 졸업</dd>
-                            </dl>
+                            <div class="m_tit">
+                                <ul>
+                                    <li>2012.03 ~ 2015.02</li>
+                                    <li>2015.03 ~ 2018.02</li>
+                                </ul>
+                            </div>
+                            <div class="m_txt">
+                                <ul>
+                                    <li>용인 백현 고등학교 졸업</li>
+                                    <li>백석문화대학 호텔조리학과 졸업</li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <strong>자격증</strong>
-                            <ul>
-                                <li>제빵기능사</li>
-                                <li>제과기능사</li>
-                            </ul>
+                            <div class="m_tit">
+                                <ul>
+                                    <li>제빵기능사</li>
+                                    <li>제과기능사</li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                     <button class="close_btn" type="button" data-link="first"><img class="close" src="images/close.png"
@@ -98,8 +114,8 @@
                 </div>
 
                 <div id="modalcnt2" class="md_cnt" role="dialog" aria-labelledby="tit2">
-                    <h4 class="blind">skills 상세 컨텐츠</h4>
-                    <ul>
+                    <h4 class="blind" id="tit2">skills 상세 컨텐츠</h4>
+                    <ul class="clearfix">
                         <li id="html">
                             <strong>HTML</strong>
                             <div class="inner">
@@ -107,7 +123,7 @@
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
-                                        d="M62,2.2H44.2C44.2,1,43.2,0,42,0H28c-1.2,0-2.2,1-2.2,2.2H8c-4.4,0-8,3.6-8,8v94c0,4.4,3.6,8,8,8h54c4.4,0,8-3.6,8-8v-94 C70,5.8,66.4,2.2,62,2.2z M65,101.2c0,3.3-2.7,6-6,6H11c-3.3,0-6-2.7-6-6v-88c0-3.3,2.7-6,6-6h48c3.3,0,6,2.7,6,6V101.2z" />
+                                        d="M62,2.2H44.2C44.2,1,43.2,0,42,0H28c-1.2,0-2.2,1-2.2, 2.2H8c-4.4,0-8,3.6-8,8v94c0,4.4,3.6,8,8,8h54c4.4,0,8-3.6, 8-8v-94 C70,5.8,66.4,2.2,62,2.2z M65,101.2c0,3.3-2.7,6-6, 6H11c-3.3,0-6-2.7-6-6v-88c0-3.3,2.7-6,6-6h48c3.3,0,6,2.7,6, 6V101.2z" />
                                 </svg>
                                 <div class="value">
                                     <div></div>
@@ -118,7 +134,7 @@
                         <li id="css">
                             <strong>CSS</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -133,7 +149,7 @@
                         <li id="jquery">
                             <strong>jQuery</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -148,7 +164,7 @@
                         <li id="web">
                             <strong>웹접근성</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -163,7 +179,7 @@
                         <li id="javascript">
                             <strong>JavaScript</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -178,7 +194,7 @@
                         <li id="wordpress">
                             <strong>WordPress</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_6" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -193,7 +209,7 @@
                         <li id="bootstrap">
                             <strong>Bootstrap</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_7" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -208,7 +224,7 @@
                         <li id="photoshop">
                             <strong>Photoshop</strong>
                             <div class="inner">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.1" id="Layer_8" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70" height="112" viewBox="0 0 70 112.2"
                                     style="enable-background:new 0 0 70 112.2;" xml:space="preserve">
                                     <path
@@ -230,6 +246,7 @@
                 <div class="visual">
                     <a href="haje.html">
                         <img src="images/haje.jpg" alt="하제건설 페이지" width="900" height="1664">
+                        <span>VIEW SITE</span>
                     </a>
                 </div>
             </article>
@@ -237,6 +254,7 @@
                 <div class="visual">
                     <a href="sub/belle.html">
                         <img src="images/belle.jpg" alt="벨르 페이지">
+                        <span>VIEW SITE</span>
                     </a>
                 </div>
             </article>
@@ -244,6 +262,7 @@
                 <div class="visual">
                     <a href="papa.html">
                         <img src="images/papajohns.jpg" alt="파파존스 페이지">
+                        <span>VIEW SITE</span>
                     </a>
                 </div>
             </article>
@@ -251,9 +270,6 @@
     </section>
 
     <div class="scroll" aria-hidden="true"><span>scroll</span><img src="images/arrow.png" alt="마우스 휠 내리기"></div>
-    </div>
-
-    <footer id="footer"></footer>
 </body>
 
 </html>

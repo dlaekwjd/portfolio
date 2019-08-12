@@ -183,7 +183,7 @@ $(document).ready(function () {
         var $closeBtn = $mdCnt.find('.close_btn');
         var $first = $mdCnt.find('[data-link="first"]');
         var timer = 0;
-        console.log($openBtn, $mdCnt.attr('id'), $closeBtn);
+        //console.log($openBtn, $mdCnt.attr('id'), $closeBtn);
 
         $mdCnt.siblings().attr({'aria-hidden': true, inert: ''});
         $mdCnt.before('<div id="dim"><div>');
@@ -200,7 +200,7 @@ $(document).ready(function () {
         });
         $(window).trigger('resize');
 
-        $dim.stop().fadeIn().next().css({visibility: 'visible'});
+        $dim.add($mdCnt).delay(500).fadeIn(500);
         $first.focus();
 
         $first.on('keydown', function (e) {
@@ -212,11 +212,10 @@ $(document).ready(function () {
         });
 
         $closeBtn.on('click', function () {
-            $dim.stop().fadeOut('fast', function () {
-                $(this).remove();
+            $dim.add($mdCnt).stop().fadeOut('fast', function () {
+                $dim.remove();
                 $openBtn.focus();
             });
-            $mdCnt.css({visibility: 'hidden'});
             $mdCnt.siblings().removeAttr('aria-hidden inert');
             if ($openBtn.hasClass('hor')) {
                 $(".hor").css({top: 285, left: '50%', marginLeft: -755});
