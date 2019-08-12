@@ -626,8 +626,10 @@ article {
   position: relative; }
   article .visual {
     position: absolute;
-    top: 230px;
-    left: 510px;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -450px;
     width: 900px;
     height: 500px;
     overflow: hidden; }
