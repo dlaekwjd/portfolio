@@ -129,12 +129,12 @@ button {
       margin-left: 40px;
       color: #fff; }
 
-#belleCnt1 {
-  background: url("../images/belle_bg.jpg") no-repeat top center;
+.cnt1 {
+  background: no-repeat top center;
   width: 1920px;
   height: 920px;
   color: #fff; }
-  #belleCnt1 h2 {
+  .cnt1 h2 {
     font-size: 180px;
     position: absolute;
     top: 50%;
@@ -142,7 +142,7 @@ button {
     margin-top: -134px;
     margin-left: -199px;
     color: #fff; }
-  #belleCnt1 .info {
+  .cnt1 .info {
     position: absolute;
     top: 770px;
     left: 50%;
@@ -151,19 +151,28 @@ button {
     background: rgba(0, 0, 0, 0.2);
     margin-left: -960px;
     color: #fff; }
-    #belleCnt1 .info strong {
+    .cnt1 .info strong {
       display: inline-block;
       font-size: 50px;
       padding-left: 412px;
       line-height: 150px;
       font-family: NotoSansR; }
-    #belleCnt1 .info dl {
+    .cnt1 .info dl {
       width: 960px;
       overflow: hidden; }
-    #belleCnt1 .info dl dt {
+    .cnt1 .info dl dt {
       width: 50%; }
-    #belleCnt1 .info dl dd {
+    .cnt1 .info dl dd {
       width: 50%; }
+
+#papaCnt1 {
+  background-image: url("../images/papa_bg.jpg"); }
+
+#belleCnt1 {
+  background-image: url("../images/belle_bg.jpg"); }
+
+#hajeCnt1 {
+  background-image: url("../images/haje_bg.jpg"); }
 
 section h3 {
   font-size: 45px; }
@@ -177,7 +186,7 @@ section h3 span {
 section strong {
   font-size: 20px; }
 
-#content #belleCnt2, #belleCnt3, #belleCnt4 {
+#content #belleCnt2, #belleCnt4 {
   padding-top: 100px;
   width: 1620px;
   margin: 0 auto; }
@@ -204,11 +213,12 @@ section strong {
   -webkit-transform: perspective(0) rotateY(-10deg);
   margin: 0 140px 0 -60px; }
 
-#content #belleCnt3 {
+#belleCnt3 {
   margin-top: 300px; }
 
 #belleCnt3 h3, #belleCnt3 strong {
-  text-align: right; }
+  text-align: right;
+  padding-right: 20px; }
 
 .detail_slider {
   position: relative;
@@ -217,9 +227,15 @@ section strong {
   overflow: hidden;
   margin-top: 77px; }
 
-/* .detail_slider:before{content: "";display: block;width: 50%;height: 100%;background: #b31bb3}
-.detail_slider .visual li{position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 10}
-.detail_slider .visual li.on{z-index: 20}
+.detail_slider .visual li .txtbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 960px;
+  height: 100%;
+  background: #f29987; }
+
+/* 
 
 .detail_slider .visual li:before, .detail_slider .visual li .img, .detail_slider .visual li .txtbox{-webkit-transition: all 0.4s;-moz-transition: all 0.4s;-o-transition: all 0.4s;transition: all 0.4s}
 .detail_slider .visual li:before{content: "";position: absolute;top: 0;left: 0;width: 50%;height: 0;background: #b31bb3}
