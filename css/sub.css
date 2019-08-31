@@ -187,18 +187,15 @@ button {
 
 section {
   margin: 0 auto; }
-
-section h3 {
-  font-size: 45px; }
-
-section h3 span {
-  font-size: 100px;
-  color: #aaa;
-  font-family: NotoSansM;
-  margin-right: 20px; }
-
-section strong {
-  font-size: 20px; }
+  section h3 {
+    font-size: 45px; }
+    section h3 span {
+      font-size: 100px;
+      color: #aaa;
+      font-family: NotoSansM;
+      margin-right: 20px; }
+  section strong {
+    font-size: 20px; }
 
 #content .cnt2, #content .cnt4 {
   width: 1620px;
@@ -229,7 +226,7 @@ section strong {
 .cnt3 {
   margin-top: 300px; }
 
-.cnt3 h3, #belleCnt3 .tit {
+.cnt3 h3, .cnt3 .tit {
   text-align: right;
   padding-right: 140px; }
 
@@ -249,9 +246,14 @@ section strong {
   left: 0;
   width: 960px;
   height: 100%;
-  background: #f29987;
   text-align: right;
   color: #fff; }
+
+.belle_slider .visual li .txtbox {
+  background-color: #f29987; }
+
+.papa_slider .visual li .txtbox {
+  background-color: #2e8b57; }
 
 .detail_slider .visual li .txtbox h4 {
   padding-top: 240px;

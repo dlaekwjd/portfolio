@@ -154,10 +154,14 @@ $white: #fff;
 #content #belleCnt1{background-image: url("../images/belle_bg.jpg")}
 #content #hajeCnt1{background-image: url("../images/haje_bg.jpg")}
 
-section{margin: 0 auto;}
-section h3{font-size: 45px}
-section h3 span{font-size: 100px;color: #aaa;font-family: NotoSansM;margin-right: 20px;}
-section strong{font-size: 20px}
+section{
+    margin: 0 auto;
+    h3{
+        font-size: 45px;
+        span{font-size: 100px;color: #aaa;font-family: NotoSansM;margin-right: 20px;}
+    }
+    strong{font-size: 20px}
+}
 
 #content .cnt2, #content .cnt4{width: 1620px;margin: 0 auto;}
 .cnt2 .accordion{margin-top: 70px;height: 702px;}
@@ -166,11 +170,12 @@ section strong{font-size: 20px}
 .accordion div:hover {-webkit-transform: perspective(0) rotateY(-10deg);margin: 0 140px 0 -60px;}
 
 .cnt3{margin-top: 300px;}
-.cnt3 h3, #belleCnt3 .tit{text-align: right;padding-right: 140px;}
+.cnt3 h3, .cnt3 .tit{text-align: right;padding-right: 140px;}
 .cnt3 .tit{display: block;}
 .detail_slider{position:relative;height: 960px;width: 1920px;overflow:hidden;margin-top: 77px}
-
-.detail_slider .visual li .txtbox{position: absolute;top: 0;left: 0;width: 960px;height: 100%;background: #f29987;text-align: right;color: #fff;}
+.detail_slider .visual li .txtbox{position: absolute;top: 0;left: 0;width: 960px;height: 100%;text-align: right;color: #fff;}
+.belle_slider .visual li .txtbox{background-color: #f29987}
+.papa_slider .visual li .txtbox{background-color: #2e8b57}
 .detail_slider .visual li .txtbox h4{padding-top: 240px;font-size: 35px;font-family: NotoSansM}
 .detail_slider .visual li .txtbox h4, .detail_slider .visual li .txtbox strong, .detail_slider .visual li .txtbox img{padding-right: 260px;}
 .detail_slider .visual li .txtbox strong{display: block;padding-top: 20px;}
@@ -194,6 +199,7 @@ section strong{font-size: 20px}
 .cnt4 .color li span{position: absolute;bottom: 10px}
 .cnt4 .color li .c_name{left: 20px;}
 .cnt4 .color li .c_code{right: 20px;}
+
 #belleCnt4 .color .bg_color1{background: #960018}
 #belleCnt4 .color .bg_color2{background: #FBB2A3}
 #belleCnt4 .color .bg_color3{background: #ff0000}
@@ -205,6 +211,14 @@ section strong{font-size: 20px}
 #hajeCnt4 .color .bg_color3{background: #496679}
 #hajeCnt4 .color .bg_color4{background: #414257}
 #hajeCnt4 .color .bg_color5{background: #323232}
+
+#papaCnt4 .color .bg_color1{background-color: #016D39}
+#papaCnt4 .color .bg_color2{background-color: #C02B18}
+#papaCnt4 .color .bg_color3{background-color: #FBAC13}
+#papaCnt4 .color .bg_color4{background-color: #FF2400}
+#papaCnt4 .color .bg_color5{background-color: #009DC4}
+
+
 
 .cnt4 .font{margin-left: 70px;margin-bottom: 200px;}
 .cnt4 .font ul li{border-bottom: 1px solid #333;width: 700px;height: 100px;line-height: 100px;}
