@@ -139,17 +139,21 @@ $white: #fff;
 
 #content .cnt1{
     background: no-repeat top center;width: 100%;height: 920px;color: #fff;margin: 0 auto;
-    h2{font-size: 180px;position: absolute;top: 270px;left: 50%;margin-left: -199px;color: #fff}
+    h2{font-size: 180px;position: absolute;top: 270px;left: 50%;color: #fff}
     .info{
-        position: absolute;top: 770px;left: 50%;width: 100%;height: 150px;background: rgba(0, 0, 0, 0.2);margin-left: -960px;color: #fff;
+        position: absolute;top: 770px;width: 100%;height: 150px;background: rgba(0, 0, 0, 0.2);color: #fff;
         strong, dl{float: left;}
         strong{display: inline-block;font-size: 50px;line-height: 150px;font-family: NotoSansR;width: 50%;text-align: right;padding-right: 50px;@include boxSize}
-        dl{width: 50%;overflow:hidden;min-width: 900px;}
+        dl{width: 50%;overflow:hidden;min-width: 840px;}
         dl dt, dl dd{float: left}
         dl dt{width: 200px;text-align: center}
-        dl dd{width: 650px;}
+        dl dd{width: 590px;}
     }
 }
+#papaCnt1 h2{margin-left: -498px;}
+#belleCnt1 h2{margin-left: -199px;}
+#hajeCnt1 h2{margin-left: -185px;}
+
 #content #papaCnt1{background-image: url("../images/papa_bg.jpg")}
 #content #belleCnt1{background-image: url("../images/belle_bg.jpg")}
 #content #hajeCnt1{background-image: url("../images/haje_bg.jpg")}
@@ -163,7 +167,8 @@ section{
     strong{font-size: 20px}
 }
 
-#content .cnt2, #content .cnt4{width: 1620px;margin: 0 auto;}
+#content .cnt2{width: 1600px;margin: 100px auto;position: relative}
+.cnt2 .view{position: absolute;top: 0;right: 20px;border: 1px solid #333;padding: 10px 30px}
 .cnt2 .accordion{margin-top: 70px;height: 702px;}
 .accordion div {float: left;-webkit-transform: perspective(900px) rotateY(60deg);-webkit-transition: all 0.7s ease-in-out;height: 702px;margin-left: -250px;padding-top: 70px;width: 455px;}
 .accordion div:first-child {margin-left: 20px; -webkit-transform: perspective(0) rotateY(0deg); margin-right:120px}
@@ -176,6 +181,7 @@ section{
 .detail_slider .visual li .txtbox{position: absolute;top: 0;left: 0;width: 960px;height: 100%;text-align: right;color: #fff;}
 .belle_slider .visual li .txtbox{background-color: #f29987}
 .papa_slider .visual li .txtbox{background-color: #2e8b57}
+.haje_slider .visual li .txtbox{background-color: #2e5575}
 .detail_slider .visual li .txtbox h4{padding-top: 240px;font-size: 35px;font-family: NotoSansM}
 .detail_slider .visual li .txtbox h4, .detail_slider .visual li .txtbox strong, .detail_slider .visual li .txtbox img{padding-right: 260px;}
 .detail_slider .visual li .txtbox strong{display: block;padding-top: 20px;}
@@ -191,9 +197,10 @@ section{
 .detail_slider .paging li.on a{color: #333}
 
 .cnt4{width: 100%;height: 500px;background: fixed no-repeat center top;margin-top: 360px;}
-#belleCnt4{background-image: url("../images/color-patterns-1984238_1920.jpg")}
-#belleCnt4 div{float: left;margin-top: 100px;}
-#belleCnt4 h3, #belleCnt4 strong{padding-top: 700px;;margin-left: 150px;}
+.cnt4{background-image: url("../images/color-patterns-1984238_1920.jpg")}
+.cnt4 #box{@mixin clearfix{};width: 1550px;margin: 0 auto}
+.cnt4 .color, .cnt4 .font{float: left;margin-top: 100px;}
+.cnt4 h3, .cnt4 strong{padding-top: 700px;margin-left: 150px;}
 
 .cnt4 .color li{position: relative;width: 700px;height: 100px;color: #fff;font-size: 20px}
 .cnt4 .color li span{position: absolute;bottom: 10px}
@@ -212,12 +219,11 @@ section{
 #hajeCnt4 .color .bg_color4{background: #414257}
 #hajeCnt4 .color .bg_color5{background: #323232}
 
-#papaCnt4 .color .bg_color1{background-color: #016D39}
-#papaCnt4 .color .bg_color2{background-color: #C02B18}
-#papaCnt4 .color .bg_color3{background-color: #FBAC13}
-#papaCnt4 .color .bg_color4{background-color: #FF2400}
-#papaCnt4 .color .bg_color5{background-color: #009DC4}
-
+#papaCnt4 .color .bg_color1{background: #016D39}
+#papaCnt4 .color .bg_color2{background: #C02B18}
+#papaCnt4 .color .bg_color3{background: #FBAC13}
+#papaCnt4 .color .bg_color4{background: #FF2400}
+#papaCnt4 .color .bg_color5{background: #009DC4}
 
 
 .cnt4 .font{margin-left: 70px;margin-bottom: 200px;}
@@ -229,3 +235,5 @@ section{
 .cnt4 .font ul .font3 .f_size{font-size: 35px}
 .cnt4 .font ul .font4 .f_size{font-size: 20px}
 .cnt4 .font ul .font5 .f_size{font-size: 16px}
+
+#footer .return_top{right: 80px; bottom: 30px;position:fixed; z-index: 10000;}

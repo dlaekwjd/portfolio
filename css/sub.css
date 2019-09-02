@@ -140,16 +140,13 @@ button {
     position: absolute;
     top: 270px;
     left: 50%;
-    margin-left: -199px;
     color: #fff; }
   #content .cnt1 .info {
     position: absolute;
     top: 770px;
-    left: 50%;
     width: 100%;
     height: 150px;
     background: rgba(0, 0, 0, 0.2);
-    margin-left: -960px;
     color: #fff; }
     #content .cnt1 .info strong, #content .cnt1 .info dl {
       float: left; }
@@ -167,14 +164,23 @@ button {
     #content .cnt1 .info dl {
       width: 50%;
       overflow: hidden;
-      min-width: 900px; }
+      min-width: 840px; }
     #content .cnt1 .info dl dt, #content .cnt1 .info dl dd {
       float: left; }
     #content .cnt1 .info dl dt {
       width: 200px;
       text-align: center; }
     #content .cnt1 .info dl dd {
-      width: 650px; }
+      width: 590px; }
+
+#papaCnt1 h2 {
+  margin-left: -498px; }
+
+#belleCnt1 h2 {
+  margin-left: -199px; }
+
+#hajeCnt1 h2 {
+  margin-left: -185px; }
 
 #content #papaCnt1 {
   background-image: url("../images/papa_bg.jpg"); }
@@ -197,9 +203,17 @@ section {
   section strong {
     font-size: 20px; }
 
-#content .cnt2, #content .cnt4 {
-  width: 1620px;
-  margin: 0 auto; }
+#content .cnt2 {
+  width: 1600px;
+  margin: 100px auto;
+  position: relative; }
+
+.cnt2 .view {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  border: 1px solid #333;
+  padding: 10px 30px; }
 
 .cnt2 .accordion {
   margin-top: 70px;
@@ -254,6 +268,9 @@ section {
 
 .papa_slider .visual li .txtbox {
   background-color: #2e8b57; }
+
+.haje_slider .visual li .txtbox {
+  background-color: #2e5575; }
 
 .detail_slider .visual li .txtbox h4 {
   padding-top: 240px;
@@ -317,14 +334,18 @@ section {
   background: fixed no-repeat center top;
   margin-top: 360px; }
 
-#belleCnt4 {
+.cnt4 {
   background-image: url("../images/color-patterns-1984238_1920.jpg"); }
 
-#belleCnt4 div {
+.cnt4 #box {
+  width: 1550px;
+  margin: 0 auto; }
+
+.cnt4 .color, .cnt4 .font {
   float: left;
   margin-top: 100px; }
 
-#belleCnt4 h3, #belleCnt4 strong {
+.cnt4 h3, .cnt4 strong {
   padding-top: 700px;
   margin-left: 150px; }
 
@@ -375,6 +396,21 @@ section {
 #hajeCnt4 .color .bg_color5 {
   background: #323232; }
 
+#papaCnt4 .color .bg_color1 {
+  background: #016D39; }
+
+#papaCnt4 .color .bg_color2 {
+  background: #C02B18; }
+
+#papaCnt4 .color .bg_color3 {
+  background: #FBAC13; }
+
+#papaCnt4 .color .bg_color4 {
+  background: #FF2400; }
+
+#papaCnt4 .color .bg_color5 {
+  background: #009DC4; }
+
 .cnt4 .font {
   margin-left: 70px;
   margin-bottom: 200px; }
@@ -408,5 +444,11 @@ section {
 
 .cnt4 .font ul .font5 .f_size {
   font-size: 16px; }
+
+#footer .return_top {
+  right: 80px;
+  bottom: 30px;
+  position: fixed;
+  z-index: 10000; }
 
 /*# sourceMappingURL=sub.css.map */
